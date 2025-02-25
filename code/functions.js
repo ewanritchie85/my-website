@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // This function creates a quick fade in when moving between web pages
-    $("body").css("display", "none");
-    $("body").fadeIn(300);
+    $(".page-content").css("display", "none");
+    $(".page-content").fadeIn(500);
 
     // Creates a double fade out/fade in on the image
     $("#mug-shot").click(function(){

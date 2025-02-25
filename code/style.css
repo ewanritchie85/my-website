@@ -1,70 +1,89 @@
 body {
     background-color: #3d3d3d;
-    color:rgb(202, 202, 202);
-    font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
+    color: rgb(202, 202, 202);
+    font-family: Helvetica, Arial;
     margin-left: 10%;
     margin-right: 10%;
-    opacity: 0.8;
 }
-/* Header styles */
+
+/* Style for the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;  /* Positions content on the left and mug shot on the right */
+    align-items: center;
+    background-color: #3d3d3d;
+    padding: 10px;
+    border-bottom: 2px solid #a2a2a2;  /* Border under the nav bar */
+    position: relative;
+}
+
+/* Mug shot aligned to the right */
+#mug-shot {
+    margin-left: 20px;  /* Spacing between the content and the image */
+    height: 80px;
+    width: auto;
+    border-radius: 50%;
+}
+
+/* Content aligned to the left (side by side) */
+.nav-content {
+    display: flex;
+    align-items: baseline;  /* Align h1 and h3 along the bottom (baseline) */
+    text-align: left;
+    margin-bottom: -60px; /* Move the content to touch the bottom border */
+}
+
+/* Adjust margins for side-by-side alignment */
+.header1 {
+    margin: 0;
+    font-size: 28px;
+    margin-right: 40px;  /* Increased space between h1 and h3 */
+    padding-right: 10px; /* Add padding for extra spacing */
+}
+
+.header2 {
+    margin: 0;
+    font-size: 16px;
+    padding-left: 10px; /* Add padding for extra spacing */
+    margin-bottom: -5px; /* Move h3 closer to the border line */
+}
+
+/* Buttons placed under the border line */
+.nav-buttons {
+  margin-top: 2px;
+  padding-top: 2px;
+  display: flex;
+  gap: 15px;
+}
+
+.buttons {
+  background-color: #2a2a2a;
+  color: rgb(202, 201, 201);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons:hover {
+  background-color: #4e4e4e;
+}
+
 .header1 {
   margin: 0;
   font-size: 24px;
 }
 
 .header2 {
-  margin: 5px 0 0 0;
+  margin: 5px 0;
   font-size: 18px;
 }
 
-
-/* Style for the navigation bar */
-.navbar {
-  display: flex;
-  align-items: center;   /* Vertically center elements */
-  background-color: #3d3d3d;   /* Light background for nav */
-  padding: 10px;   /* Padding inside the nav bar */
-  border-bottom: 2px solid #a2a2a2;   /* Border to separate nav bar */
+/* Styling for the page content */
+.page-content {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
 }
-
-/* Image styling (aligned to the left) */
-#mug-shot {
-  margin-right: 10px;   /* Space between the image and other content */
-  opacity: 0.6;
-}
-
-/* Container for titles and buttons */
-.nav-content {
-  display: flex;
-  flex-direction: column;   /* Stack the h1, h3, and buttons vertically */
-  justify-content: center;  /* Center the content horizontally */
-  align-items: center;      /* Center the content vertically within the flexbox */
-  flex-grow: 1;  /* Take up remaining space between the image and the right side of the navbar */
-}
-
-
-/* Button container */
-.nav-buttons {
-  display: flex;
-  gap: 10px;  /* Space between buttons */
-  margin-top: 10px;
-}
-.buttons {
-  background-color: #363636;
-  color: rgb(202, 201, 201);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-
-}
-.buttons:hover {
-  background-color: #2a2a2a;  /* Darker green on hover */
-}
-
-
