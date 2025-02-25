@@ -1,0 +1,70 @@
+body {
+    background-color: #3d3d3d;
+    color:rgb(202, 202, 202);
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    opacity: 0.8;
+}
+/* Header styles */
+.header1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header2 {
+  margin: 5px 0 0 0;
+  font-size: 18px;
+}
+
+
+/* Style for the navigation bar */
+.navbar {
+  display: flex;
+  align-items: center;   /* Vertically center elements */
+  background-color: #3d3d3d;   /* Light background for nav */
+  padding: 10px;   /* Padding inside the nav bar */
+  border-bottom: 2px solid #a2a2a2;   /* Border to separate nav bar */
+}
+
+/* Image styling (aligned to the left) */
+#mug-shot {
+  margin-right: 10px;   /* Space between the image and other content */
+  opacity: 0.6;
+}
+
+/* Container for titles and buttons */
+.nav-content {
+  display: flex;
+  flex-direction: column;   /* Stack the h1, h3, and buttons vertically */
+  justify-content: center;  /* Center the content horizontally */
+  align-items: center;      /* Center the content vertically within the flexbox */
+  flex-grow: 1;  /* Take up remaining space between the image and the right side of the navbar */
+}
+
+
+/* Button container */
+.nav-buttons {
+  display: flex;
+  gap: 10px;  /* Space between buttons */
+  margin-top: 10px;
+}
+.buttons {
+  background-color: #363636;
+  color: rgb(202, 201, 201);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+.buttons:hover {
+  background-color: #2a2a2a;  /* Darker green on hover */
+}
+
+

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <!-- This enables JavaScript and jQuery -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script>
+        <script src="functions.js"></script>
+        <!-- This references style.css for external styling -->
+        <link rel="stylesheet" href="style.css">
+        <title> About Me</title>
+        <meta http-equiv="refresh" content="30">
+      </head>
+
+      <body>
+        <div>
+            <h1 class="header1">About Me</h1>
+        </div>
+        <div >
+            <a href="./main.html"><button class="buttons" id="main-button"> Home</button></a>
+            <a href="./about.html"><button class="buttons" id="about-button"> About</button></a>
+        </div>
+
+        <p id="quiz-title">Ridwaan is Mo Farah's brother :</p>
+        <form id="quiz">
+          <input type="radio" id="true" name="answer" value="true">
+          <label for="true">True</label><br>
+          <input type="radio" id="false" name="answer" value="false">
+          <label for="false">False</label><br><br>
+          <button id="submit" type="submit"> Submit</button>
+        </form> 
+        <div id="paragraph">
+          <p id="wrong"> Guess again</p>
+
+          <p id="blurb">
+            Ridwaan is from London and studied Chemistry at King's College while working part-time in security.<br>
+            He loves going to the gym and playing basketball, his favourite player is <a id="blurb-link" href="https://en.wikipedia.org/wiki/Russell_Westbrook" target="_blank">Russell Westbrook</a>.
+          </p>
+        </div>
+
+        
+
+      </body>
+</html>
