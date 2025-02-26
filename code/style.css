@@ -6,45 +6,40 @@ body {
     margin-right: 10%;
 }
 
-/* Style for the navigation bar */
 .navbar {
     display: flex;
-    justify-content: space-between;  /* Positions content on the left and mug shot on the right */
+    justify-content: space-between; 
     align-items: center;
     background-color: #3d3d3d;
     padding: 10px;
-    border-bottom: 2px solid #a2a2a2;  /* Border under the nav bar */
+    border-bottom: 2px solid #a2a2a2;  
     position: relative;
 }
 
-/* Mug shot aligned to the right */
 #mug-shot {
-    margin-left: 20px;  /* Spacing between the content and the image */
+    margin-left: 20px;  
     height: 80px;
     width: auto;
     border-radius: 50%;
 }
 
-/* Content aligned to the left (side by side) */
 .nav-content {
     display: flex;
-    align-items: baseline;  /* Align h1 and h3 along the bottom (baseline) */
-    text-align: left;
-    margin-bottom: -60px; /* Move the content to touch the bottom border */
+    align-items: baseline;  
+    margin-bottom: -60px; 
 }
 
-/* Adjust margins for side-by-side alignment */
 .header1 {
     margin: 0;
     font-size: 28px;
-    margin-right: 40px;  /* Increased space between h1 and h3 */
-    padding-right: 10px; /* Add padding for extra spacing */
+    margin-right: 10px;  
+    padding-right: 5px;
 }
 
 .header2 {
     margin: 0;
-    font-size: 16px;
-    padding-left: 10px; /* Add padding for extra spacing */
+    font-size: 14px;
+    padding-left: 5px; /* Add padding for extra spacing */
     margin-bottom: -5px; /* Move h3 closer to the border line */
 }
 
@@ -70,15 +65,6 @@ body {
   background-color: #4e4e4e;
 }
 
-.header1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.header2 {
-  margin: 5px 0;
-  font-size: 18px;
-}
 
 /* Styling for the page content */
 .page-content {
@@ -86,4 +72,75 @@ body {
   padding: 20px;
   background-color: #2a2a2a;
   border-radius: 8px;
+}
+
+.pdf {
+  border: none; /* Remove border for a cleaner look */
+  display: block; /* Ensures it's treated as a block-level element */
+  margin: 0 auto; /* Centers the iframe horizontally */
+}
+.page-content {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  display: flex; /* Makes child elements align horizontally */
+}
+
+/* Style for the experience list on the left */
+.experience-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 200px; /* Fixed width for the left-side list */
+}
+
+/* Style the list items to look like buttons */
+.experience-list li {
+  background-color: #2a2a2a;
+  color: rgb(202, 202, 202);
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3d3d3d; /* Dark border to separate buttons */
+  transition: background-color 0.3s ease;
+}
+
+.experience-list li:hover {
+  background-color: #4e4e4e; /* Button hover effect */
+}
+
+/* Container for the experience content on the right */
+.experience-container {
+  flex-grow: 1; /* Takes the remaining space to the right */
+  margin-left: 20px;
+  background-color: #3d3d3d; /* Darker background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Initially hide the experience sections */
+.experience {
+  display: none;
+}
+
+/* Show the experience content when active */
+.experience.active {
+  display: block;
+}
+
+/* Optional: Styling for the PDF to match the design */
+.pdf {
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Clear float issues if needed */
+.page-content::after {
+  content: "";
+  display: block;
+  clear: both;
 }

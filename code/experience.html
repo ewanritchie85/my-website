@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"> </script>
+        <script src="functions.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Ewan Ritchie</title>
+      </head>
+
+      <body>
+        <!-- Top Navigation Bar -->
+        <div class="navbar">
+            <div class="nav-content">
+                <h1 class="header1">Ewan Ritchie</h1>
+                <h3 class="header2">Junior Consultant</h3>
+            </div>
+            <img id="mug-shot" title="Me" src="../images/mug-shot.png" width="110" height="auto">
+        </div>
+        <div class="nav-buttons">
+            <a href="./main.html"><button class="buttons" id="about-button">About Me</button></a>
+            <a href="./experience.html"><button class="buttons" id="about-button">Experience</button></a>
+            <a href="./cv.html"><button class="buttons" id="about-button">CV</button></a>
+        </div>
+
+        <div class="page-content">
+            <ul class="experience-list">
+                <li data-experience="ten10">Ten10 Academy</li>
+                <li data-experience="northcoders">Northcoders</li>
+        </ul>
+        <div class="experience-container">
+            <div class="experience" id="ten10">
+                <p>Information about Ten10 Academy...</p>
+            </div>
+            <div class="experience" id="northcoders" style="display: none;">
+                <p>Using Python and Terraform, my team successfully designed and implemented an application that extracted, transformed, and loaded data from a PostgreSQL database into a data lake and data warehouse hosted in AWS.</p>
+                <iframe src="../video/nc-datalake-project.mp4" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        </div>
+    </body>
+</html>
