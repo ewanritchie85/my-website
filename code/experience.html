@@ -7,32 +7,50 @@
       </head>
 
       <body>
-        <!-- Top Navigation Bar -->
         <div class="navbar">
             <div class="nav-content">
                 <h1 class="header1">Ewan Ritchie</h1>
                 <h3 class="header2">Junior Consultant</h3>
             </div>
-            <img id="mug-shot" title="Me" src="../images/mug-shot.png" width="110" height="auto">
+            <img id="mug-shot" title="Handsome" src="../images/mug-shot.png" width="110" height="auto">
         </div>
         <div class="nav-buttons">
             <a href="./main.html"><button class="buttons" id="about-button">About Me</button></a>
             <a href="./experience.html"><button class="buttons" id="about-button">Experience</button></a>
-            <a href="./cv.html"><button class="buttons" id="about-button">CV</button></a>
+            <a href="./cv.html"><button class="buttons" id="about-button" >CV</button></a>
         </div>
 
         <div class="page-content">
             <ul class="experience-list">
-                <li data-experience="ten10">Ten10 Academy</li>
+                <li data-experience="ten10">Ten10</li>
                 <li data-experience="northcoders">Northcoders</li>
         </ul>
         <div class="experience-container">
+            <!-- Ten10 experience -->
             <div class="experience" id="ten10">
                 <p>Information about Ten10 Academy...</p>
             </div>
+            <!-- Northcoders experience -->
             <div class="experience" id="northcoders" style="display: none;">
-                <p>Using Python and Terraform, my team successfully designed and implemented an application that extracted, transformed, and loaded data from a PostgreSQL database into a data lake and data warehouse hosted in AWS.</p>
-                <iframe src="../video/nc-datalake-project.mp4" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                <p>Using Python and Terraform, my team successfully designed and 
+                    implemented an application that extracted,transformed, and 
+                    loaded data from a PostgreSQL database into a data lake and 
+                    data warehouse hosted in AWS.
+                </p>
+                <img title="AWS Architecture" style="border-radius: 10px" src="../images/Totesys ETL pipeline.jpeg" width="600" height=auto >
+
+                <div class="techstack-container">
+                    <h3>Tech Stack</h3>
+                    <img title="Python"src="../images/logos/python-logo.webp" width="50" height=auto>
+                    <img title="AWS"src="../images/logos/aws-logo.webp" width="50" height=auto>
+                    <img title="Postgres"src="../images/logos/postgres-logo.webp" width="50" height=auto>
+                    <img title="Terraform"src="../images/logos/terraform-logo.webp" width="50" height=auto>
+                    <img title="Pandas"src="../images/logos/pandas-logo.webp" width="50" height=auto>
+                    <img title="Pytest"src="../images/logos/pytest-logo.webp" width="50" height=auto>
+                    <img title="SQL Alchemy"src="../images/logos/sqla-logo.png" width="50" height=auto>
+                    <img title="GitHub Actions"src="../images/logos/github-logo.png" width="50" height=auto>
+
+                </div>
             </div>
         </div>
 

@@ -1,146 +1,132 @@
 body {
-    background-color: #3d3d3d;
-    color: rgb(202, 202, 202);
-    font-family: Helvetica, Arial;
-    margin-left: 10%;
-    margin-right: 10%;
+  background-color: #3d3d3d;
+  color: rgb(202, 202, 202);
+  font-family: Helvetica, Arial;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    background-color: #3d3d3d;
-    padding: 10px;
-    border-bottom: 2px solid #a2a2a2;  
-    position: relative;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-bottom: 2px solid #a2a2a2;  
+  position: relative;
 }
 
 #mug-shot {
-    margin-left: 20px;  
-    height: 80px;
-    width: auto;
-    border-radius: 50%;
+  margin-left: 20px;  
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
 }
 
 .nav-content {
-    display: flex;
-    align-items: baseline;  
-    margin-bottom: -60px; 
+  display: flex;
+  align-items: baseline;  
+  margin-bottom: -60px; 
 }
 
 .header1 {
-    margin: 0;
-    font-size: 28px;
-    margin-right: 10px;  
-    padding-right: 5px;
+  margin: 0;
+  font-size: 28px;
+  margin-right: 10px;  
+  padding-right: 5px;
 }
 
 .header2 {
-    margin: 0;
-    font-size: 14px;
-    padding-left: 5px; /* Add padding for extra spacing */
-    margin-bottom: -5px; /* Move h3 closer to the border line */
+  margin: 0;
+  font-size: 14px;
+  padding-left: 5px;
+  margin-bottom: -5px;
 }
 
 /* Buttons placed under the border line */
 .nav-buttons {
-  margin-top: 2px;
-  padding-top: 2px;
-  display: flex;
-  gap: 15px;
+margin-top: 2px;
+padding-top: 2px;
+display: flex;
+gap: 15px;
 }
 
 .buttons {
-  background-color: #2a2a2a;
-  color: rgb(202, 201, 201);
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+background-color: #2a2a2a;
+color: rgb(202, 201, 201);
+padding: 10px 20px;
+border-radius: 5px;
+font-size: 16px;
+border: none;
+cursor: pointer;
 }
 
 .buttons:hover {
-  background-color: #4e4e4e;
+background-color: #4e4e4e;
 }
-
 
 /* Styling for the page content */
 .page-content {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #2a2a2a;
-  border-radius: 8px;
-}
-
-.pdf {
-  border: none; /* Remove border for a cleaner look */
-  display: block; /* Ensures it's treated as a block-level element */
-  margin: 0 auto; /* Centers the iframe horizontally */
-}
-.page-content {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #2a2a2a;
-  border-radius: 8px;
-  display: flex; /* Makes child elements align horizontally */
+margin-top: 20px;
+padding: 20px;
+background-color: #2a2a2a;
+border-radius: 8px;
+display: flex;
 }
 
 /* Style for the experience list on the left */
 .experience-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 200px; /* Fixed width for the left-side list */
+list-style-type: none;
+padding: 0;
+margin: 0;
+width: 110px;
 }
 
 /* Style the list items to look like buttons */
 .experience-list li {
-  background-color: #2a2a2a;
-  color: rgb(202, 202, 202);
-  padding: 10px;
-  margin: 5px 0;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
-  border: 2px solid #3d3d3d; /* Dark border to separate buttons */
-  transition: background-color 0.3s ease;
+background-color: #2a2a2a;
+color: rgb(202, 202, 202);
+padding: 10px;
+margin: 5px 0;
+text-align: center;
+cursor: pointer;
+border-radius: 5px;
+border: 2px solid #3d3d3d;
+transition: background-color 0.3s ease;
 }
 
 .experience-list li:hover {
-  background-color: #4e4e4e; /* Button hover effect */
+background-color: #4e4e4e;
 }
 
 /* Container for the experience content on the right */
 .experience-container {
-  flex-grow: 1; /* Takes the remaining space to the right */
-  margin-left: 20px;
-  background-color: #3d3d3d; /* Darker background for contrast */
-  padding: 20px;
-  border-radius: 8px;
+flex-grow: 1;
+margin-left: 20px;
+background-color: #3d3d3d;
+padding: 20px;
+border-radius: 8px;
 }
 
 /* Initially hide the experience sections */
 .experience {
-  display: none;
+display: none;
 }
 
 /* Show the experience content when active */
 .experience.active {
-  display: block;
-}
-
-/* Optional: Styling for the PDF to match the design */
-.pdf {
-  border: none;
-  display: block;
-  margin: 0 auto;
+display: block;
+text-align: justify;
 }
 
 /* Clear float issues if needed */
 .page-content::after {
-  content: "";
-  display: block;
-  clear: both;
+content: "";
+display: block;
+clear: both;
+}
+
+.techstack-container {
+display: block;
+padding: auto;
 }
