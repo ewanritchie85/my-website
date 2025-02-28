@@ -4,6 +4,7 @@ body {
   font-family: Helvetica, Arial;
   margin-left: 10%;
   margin-right: 10%;
+  font-size: 16px;
 }
 
 .navbar {
@@ -74,6 +75,17 @@ border-radius: 8px;
 display: flex;
 }
 
+.content-links{
+  color: rgb(202, 202, 202);
+  font-family: Helvetica, Arial;
+}
+.content-links.hover{
+  color: rgb(170, 170, 170);
+}
+.tech-stack-h3{
+  font-size: 18;
+}
+
 /* Style for the experience list on the left */
 .experience-list {
 list-style-type: none;
@@ -111,6 +123,8 @@ border-radius: 8px;
 /* Initially hide the experience sections */
 .experience {
 display: none;
+font-size: 16px;
+
 }
 
 /* Show the experience content when active */

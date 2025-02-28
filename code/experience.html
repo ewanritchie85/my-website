@@ -32,15 +32,26 @@
             </div>
             <!-- Northcoders experience -->
             <div class="experience" id="northcoders" style="display: none;">
-                <p>Using Python and Terraform, my team successfully designed and 
-                    implemented an application that extracted,transformed, and 
-                    loaded data from a PostgreSQL database into a data lake and 
-                    data warehouse hosted in AWS.
+                <a class="content-links" href="https://github.com/Shuhaan/project-onyx" target="_blank"><h2>Project repository</h2></a>
+                <p>For my final project of Northcoders' data engineering bootcamp
+                    my small team were tasked with creating an ETL pipeline that 
+                    periodically extracted new data from a Postgres OLTP database for 
+                    storage in an AWS S3 'ingestion' bucket. <br>Upon data arrival in the 'ingestion' 
+                    bucket, AWS EventBridge triggered the transform lambda function which
+                    processed the data and stored it in a second 'processed' bucket. <br>
+                    The data was then loaded into a Postgres OLAP database using a third
+                    lambda function which was triggered every twenty minutes to load processed 
+                    data into an OLAP databse where clean data was analysed using Tableau.<br>
+                    Each triggering of the lambda functions was logged with Cloudwatch and significant 
+                    errors were sent to the team via email.<br>
+                     The pipeline was deployed using Terraform IaC and the code was tested using Pytest
+                     during deployment with Github Actions. All login credentials were
+                    kept private using AWS Secrets Manager</p>
                 </p>
                 <img title="AWS Architecture" style="border-radius: 10px" src="../images/Totesys ETL pipeline.jpeg" width="600" height=auto >
 
                 <div class="techstack-container">
-                    <h3>Tech Stack</h3>
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
                     <img title="Python"src="../images/logos/python-logo.webp" width="50" height=auto>
                     <img title="AWS"src="../images/logos/aws-logo.webp" width="50" height=auto>
                     <img title="Postgres"src="../images/logos/postgres-logo.webp" width="50" height=auto>
