@@ -1,9 +1,8 @@
-$(document).ready(function(){
-    // This function creates a quick fade in when moving between web pages
+$(document).ready(function() {
+    //a quick fade in when moving between pages
     $(".page-content").css("display", "none");
     $(".page-content").fadeIn(1000);
 
-    // Creates a double fade out/fade in on the image
     $("#mug-shot").click(function(){
         $("#mug-shot").fadeOut("300");
         $("#mug-shot").fadeIn("300");
@@ -21,4 +20,5 @@ $(document).ready(function(){
         var experienceId = $(this).data('experience');
         $("#" + experienceId).addClass('active').fadeIn();
     });
+
 });
