@@ -20,6 +20,6 @@ a GitHub Actions workflow copies the site files over SSH and reloads the Nginx s
 - GitHub Actions (CI/CD)
 - Raspberry Pi (Ubuntu Server)
 
-## 📄 License
+## License
 
 This project is for personal and educational use.
