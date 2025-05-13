@@ -1,24 +1,28 @@
-$(document).ready(function() {
-    //a quick fade in when moving between pages
-    $(".page-content").css("display", "none");
-    $(".page-content").fadeIn(1000);
+$(document).ready(function () {
+    // Fade in the page content
+    $(".page-content").css("display", "none").fadeIn(1000);
 
-    $("#mug-shot").click(function(){
-        $("#mug-shot").fadeOut("300");
-        $("#mug-shot").fadeIn("300");
+    // Mug shot flicker effect
+    $("#mug-shot").click(function () {
+        $("#mug-shot").fadeOut(300).fadeIn(300);
     });
 
+    // Hide all experiences
     $(".experience").hide();
-    $("#ten10").show(); // Default visible experience
 
-    // Handle clicking on the list items
-    $(".experience-list li").click(function() {
-        // Remove active class from all experiences
-        $(".experience").removeClass('active').hide();
+    // Show the first listed experience by default
+    const firstExperienceId = $(".experience-list li").first().data("experience");
+    $("#" + firstExperienceId).show().addClass("active");
+    $(".experience-list li").first().addClass("active");
 
-        // Show the selected experience
-        var experienceId = $(this).data('experience');
-        $("#" + experienceId).addClass('active').fadeIn();
+    // Handle clicking on the experience list items
+    $(".experience-list li").click(function () {
+        $(".experience").removeClass("active").hide();
+
+        const experienceId = $(this).data("experience");
+        $("#" + experienceId).fadeIn().addClass("active");
+
+        $(".experience-list li").removeClass("active");
+        $(this).addClass("active");
     });
-
 });
