@@ -46,10 +46,10 @@ body {
 
 /* Buttons placed under the border line */
 .nav-buttons {
-margin-top: 2px;
-padding-top: 2px;
-display: flex;
-gap: 15px;
+  margin-top: -8px; /* pulls it closer to the line */
+  padding-top: -4px;
+  display: flex;
+  gap: 15px;
 }
 
 .buttons {
@@ -143,4 +143,55 @@ clear: both;
 .techstack-container {
 display: block;
 padding: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-bottom: 2px solid #a2a2a2;
+}
+
+.profile-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+#mug-shot {
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.github-link img {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.2s ease;
+}
+
+.github-link img:hover {
+  filter: brightness(0.8);
+}
+
+
+.github-icon-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: -10px; /* optional: tighten spacing before buttons */
+}
+
+.github-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: filter 0.2s ease;
+}
+
+.github-link img:hover {
+  filter: brightness(0.8);
 }

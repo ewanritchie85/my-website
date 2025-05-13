@@ -9,16 +9,24 @@
 <body>
     <div class="navbar">
         <div class="nav-content">
-            <h1 class="header1">Ewan Ritchie</h1>
-            <h3 class="header2">Junior Consultant</h3>
+          <h1 class="header1">Ewan Ritchie</h1>
+          <h3 class="header2">Junior Consultant</h3>
         </div>
-        <img id="mug-shot" title="Handsome" src="../images/mug-shot.png" alt="Mug shot of Ewan Ritchie" width="110">
-    </div>
+        <div class="profile-block">
+          <img id="mug-shot" src="../images/mug-shot.png" title="Handsome">
+        </div>
+      </div>
+      
+
+      <div class="github-icon-row">
+        <a class="github-link" href="https://github.com/ewanritchie85" target="_blank">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+               alt="GitHub logo" title="My GitHub">
+        </a>
+      </div>
     <div class="nav-buttons">
-        <a href="./main.html"><button class="buttons">About Me</button></a>
+        <a href="./index.html"><button class="buttons">About Me</button></a>
         <a href="./experience.html"><button class="buttons">Experience</button></a>
-        <a href="./cv.html"><button class="buttons">CV</button></a>
-        <a href="./top-artists.html"><button class="buttons">Top Artists</button></a>
     </div>
 
     <div class="page-content">
@@ -28,11 +36,27 @@
         </ul>
         <div class="experience-container">
             <div class="experience" id="ten10">
-                <p>Information about Ten10 Academy...</p>
+                 <a class="content-links" href="https://github.com/ewanritchie85/jenkins-project" target="_blank">
+                    <h2>Ten10 Jenkins Project repository</h2>
+                </a>
+                <p>For my final project in Ten10's Platform Engineering stream, I deployed both
+                     the frontend and backend of a website. The backend used a multi-stage 
+                     Docker build, and all necessary AWS infrastructure was provisioned with
+                      Terraform. I implemented a Jenkins pipeline that automated the entire 
+                      deployment process, triggered by Git commits.  
+                    </p>
+                    <img title="Ten10 AWS Architecture" src="../images/Jenkins_project_diagram.jpg" width="600" alt="Diagram AWS infrastructure" style="border-radius: 10px;">
+                    <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="AWS" src="../images/logos/aws-logo.webp" width="50">
+                    <img title="Terraform" src="../images/logos/terraform-logo.webp" width="50">
+                    <img title="Jenkins" src="../images/logos/jenkins_logo.webp" width="40">
+                    <img title="Docker" src="../images/logos/docker_logo.webp" width="70">
+                </div>
             </div>
             <div class="experience" id="northcoders">
                 <a class="content-links" href="https://github.com/Shuhaan/project-onyx" target="_blank">
-                    <h2>Project repository</h2>
+                    <h2>Project Onyx ETL repository</h2>
                 </a>
                 <p>
                     For my final project of Northcoders' data engineering bootcamp,
@@ -41,7 +65,7 @@
                     We monitored with Cloudwatch, used AWS Secrets Manager for credentials, and deployed with Terraform.
                     Code was tested using Pytest via a GitHub Actions pipeline.
                 </p>
-                <img title="AWS Architecture" src="../images/Totesys ETL pipeline.jpeg" width="600" alt="Diagram of ETL pipeline" style="border-radius: 10px;">
+                <img title="Northcoders AWS Architecture" src="../images/Totesys_ETL_pipeline.jpeg" width="600" alt="Diagram of ETL pipeline" style="border-radius: 10px;">
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
                     <img title="Python" src="../images/logos/python-logo.webp" width="50">
