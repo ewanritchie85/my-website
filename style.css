@@ -193,17 +193,18 @@ body {
 
 .certs-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
   margin: auto;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .certs-row img {
-  flex: 1 1 0;
-  max-width: 22%;
-  height: auto;
+  flex: 0 0 auto;
+  height: 200px;
+  width: auto;
   object-fit: contain;
   border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(83, 83, 83, 0.55);
 }
