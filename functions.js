@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Fade in the page content
-    $(".page-content").css("display", "none").fadeIn(1000);
+    $(".page-content").css("display", "none").fadeIn(300);
 
     // Mug shot flicker effect
     $("#mug-shot").click(function () {
@@ -25,4 +25,16 @@ $(document).ready(function () {
         $(".experience-list li").removeClass("active");
         $(this).addClass("active");
     });
+
+    $('.certs-row img').on('click', function () {
+        $('#lightbox-img').attr('src', $(this).attr('src'));
+        $('#lightbox-modal').css('display', 'flex').hide().fadeIn(300);
+    });
+
+    $('#lightbox-modal').on('click', function (e) {
+        if (e.target === this) {
+            $(this).fadeOut(300);
+        }
+    });
+
 });

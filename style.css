@@ -195,3 +195,20 @@ padding: auto;
 .github-link img:hover {
   filter: brightness(0.8);
 }
+
+.certs-row {
+  display: flex;
+  justify-content: space-between; /* Even horizontal spacing */
+  align-items: center;
+  gap: 20px; /* Space between images */
+  margin: auto;
+  max-width: 800px;
+}
+
+.certs-row img {
+  flex: 1 1 0;
+  max-width: 22%; /* So 4 fit nicely with gap */
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
