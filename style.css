@@ -22,6 +22,7 @@ body {
   height: 80px;
   width: auto;
   border-radius: 50%;
+  image-rendering: auto;
 }
 
 .nav-content {
@@ -109,7 +110,6 @@ body {
   background-color: #4e4e4e;
 }
 
-/* Container for the experience content on the right */
 .experience-container {
   flex-grow: 1;
   margin-left: 20px;
@@ -118,20 +118,17 @@ body {
   border-radius: 8px;
 }
 
-/* Initially hide the experience sections */
 .experience {
   display: none;
   font-size: 16px;
 
 }
 
-/* Show the experience content when active */
 .experience.active {
   display: block;
   text-align: justify;
 }
 
-/* Clear float issues if needed */
 .page-content::after {
   content: "";
   display: block;
@@ -181,7 +178,6 @@ body {
   justify-content: flex-end;
   margin-top: 10px;
   margin-bottom: -10px;
-  /* optional: tighten spacing before buttons */
 }
 
 .github-link img {
@@ -198,10 +194,8 @@ body {
 .certs-row {
   display: flex;
   justify-content: space-between;
-  /* Even horizontal spacing */
   align-items: center;
   gap: 20px;
-  /* Space between images */
   margin: auto;
   max-width: 800px;
 }
@@ -209,7 +203,6 @@ body {
 .certs-row img {
   flex: 1 1 0;
   max-width: 22%;
-  /* So 4 fit nicely with gap */
   height: auto;
   object-fit: contain;
   border-radius: 10px;

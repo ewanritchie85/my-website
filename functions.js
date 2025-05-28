@@ -27,8 +27,8 @@ $(document).ready(function () {
     });
 
     $('#lightbox-modal, #lightbox-img').on('click', function (e) {
-            $('#lightbox-modal').fadeOut(300);
-        
+        $('#lightbox-modal').fadeOut(300);
+
     });
 
 });
