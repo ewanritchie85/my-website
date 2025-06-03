@@ -21,15 +21,13 @@
     </div>
 
 
-       <div class="github-icon-row">
+    <div class="github-icon-row">
         <a class="github-link" href="https://github.com/ewanritchie85?tab=repositories" target="_blank">
-            <img src="./images/logos/github-logo.png" alt="GitHub logo"
-                title="My GitHub">
+            <img src="./images/logos/github-logo.png" alt="GitHub logo" title="My GitHub">
         </a>
         <a class="linkedin-link" href="https://www.linkedin.com/in/ewan-ritchie-2aa4b6281/" target="_blank">
-            <img src="./images/logos/linkedIn-logo.jpg" alt="LinkedIn logo"
-
-                title="My LinkedIn" style="width:25px; margin-left: 5px; margin-right: 15px;">
+            <img src="./images/logos/linkedIn-logo.jpg" alt="LinkedIn logo" title="My LinkedIn"
+                style="width:25px; margin-left: 5px; margin-right: 15px;">
         </a>
     </div>
     <div class="nav-buttons">
@@ -40,11 +38,52 @@
 
     <div class="page-content">
         <ul class="experience-list">
+            <li data-experience="task-manager-app">Task Manager App</li>
             <li data-experience="my-portfolio-website">This Website</li>
             <li data-experience="ten10">Ten10</li>
             <li data-experience="northcoders">Northcoders</li>
         </ul>
         <div class="experience-container">
+
+            <div class="experience" id="task-manager-app">
+                <a class="content-links" href="https://github.com/ewanritchie85/Task-Manager" target="_blank">
+                    <h2>Task Manager Repository</h2>
+                </a>
+                <p>
+                    I developed a Java application to manage and schedule email reminders for day-to-day tasks and
+                    events, with all task data persisted to a CSV file on the host system—deployed on my Ubuntu
+                    Raspberry Pi 5.
+                    The app provides a CLI interface for adding, viewing, and deleting events, as well as configuring
+                    reminder times.
+                </p>
+                <p>
+                    A separate daemon process continuously monitors the CSV file, automatically dispatching email
+                    notifications as tasks are due and performing daily cleanup of expired events. The
+                    entire solution is Dockerized for portability and automation.
+                </p>
+                <p>
+                    I implemented a GitHub Actions CI/CD pipeline to build, test, and publish multi-architecture Docker
+                    images, with deployment orchestrated to my Raspberry Pi via a self-hosted runner upon each push to
+                    the repository.
+                </p>
+
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Java" src="./images/logos/java-logo.webp" width="50">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" width="50">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="50">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" width="50">
+                </div>
+                </div>
+                <h3 class="diagram-h3">CLI Snapshot</h3>
+                <img title="Task Manager Interface" src="./images/taskman-snapshot.jpeg" width="400"
+                    alt="Task Manager Interface" style="border-radius: 10px;">
+
+            </div>
+            </div>
+
+
+
 
             <div class="experience" id="my-portfolio-website">
                 <a class="content-links" href="https://github.com/ewanritchie85/my-website" target="_blank">
@@ -86,7 +125,7 @@
                     <img title="AWS" src="./images/logos/aws-logo.webp" width="50">
                     <img title="Terraform" src="./images/logos/terraform-logo.webp" width="50">
                     <img title="Jenkins" src="./images/logos/jenkins_logo.webp" width="40">
-                    <img title="Docker" src="./images/logos/docker_logo.webp" width="70">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="50">
                 </div>
                 <h3 class="diagram-h3">Infrastructure Diagram</h3>
                 <img title="Ten10 AWS Architecture" src="./images/Jenkins_project_diagram.jpg" width="600"
