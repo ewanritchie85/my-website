@@ -28,7 +28,35 @@ $(document).ready(function () {
 
     $('#lightbox-modal, #lightbox-img').on('click', function (e) {
         $('#lightbox-modal').fadeOut(300);
-
     });
 
+    // ✅ Move word wheel logic here
+    const form = document.getElementById("word-wheel-form");
+    if (form) {
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const centre = document.getElementById("centre-letter").value.trim().toLowerCase();
+            const outer = document.getElementById("outer-letters").value.trim().toLowerCase().split("");
+            
+            try {
+                const res = await fetch("/api/solve", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ centre_letter: centre, outer_letters: outer }),
+                });
+
+                const data = await res.json();
+                const resultsDiv = document.getElementById("word-wheel-results");
+
+                if (data.words.length === 0) {
+                    resultsDiv.textContent = "No words found.";
+                } else {
+                    resultsDiv.innerHTML = "<ul>" + data.words.map(w => `<li>${w}</li>`).join("") + "</ul>";
+                }
+            } catch (error) {
+                console.error("Error calling solve API:", error);
+            }
+        });
+    }
 });
