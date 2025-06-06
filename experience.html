@@ -51,10 +51,18 @@
                     <h2>Word Wheel Solver Repository</h2>
                 </a>
                 <p>
-                    I developed a Python application to solve word wheel puzzles.
-                    A Github Actiions workflow ensures all unit tests pass and
-                    all code is formatted to PEP8 standards before pushing to the repository.
-                    The app uses the EWOL dictionary to find all valid words.
+                    I developed a Python application to solve word wheel puzzles using the EWOL dictionary to identify
+                    all valid words.
+                    The application can be used via a command-line interface or accessed through a Flask-based API,
+                    which is integrated into a simple web interface further down this page.
+                </p>
+                <p>
+                    A GitHub Actions workflow automatically runs unit tests and enforces PEP8 formatting before changes
+                    are pushed to the repository.
+                    Upon successful unit testing, a second workflow deploys the app locally to my Raspberry Pi.
+                </p>
+                <p>
+                    API requests are routed through an Nginx reverse proxy.
                 </p>
 
                 <div class="techstack-container">
