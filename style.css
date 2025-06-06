@@ -208,3 +208,18 @@ body {
   border-radius: 10px;
   box-shadow: 0 6px 24px rgba(83, 83, 83, 0.55);
 }
+
+#word-wheel-results-wrapper {
+  margin-top: 20px;
+}
+
+#word-wheel-results-wrapper h4 {
+  margin-bottom: 8px;
+}
+
+#word-wheel-results {
+  background-color: #1e1e1e;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 30px;
+}
