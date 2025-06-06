@@ -29,8 +29,8 @@ $(document).ready(function () {
     $('#lightbox-modal, #lightbox-img').on('click', function (e) {
         $('#lightbox-modal').fadeOut(300);
     });
-
-    // ✅ Move word wheel logic here
+    
+    // Word Wheel Solver
     const form = document.getElementById("word-wheel-form");
     if (form) {
         form.addEventListener("submit", async function (e) {
