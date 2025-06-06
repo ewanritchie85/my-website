@@ -218,8 +218,11 @@ body {
 }
 
 #word-wheel-results {
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
   padding: 10px;
   border-radius: 5px;
   min-height: 30px;
+  column-count: auto;
+  column-gap: normal;
+  white-space: normal;
 }
