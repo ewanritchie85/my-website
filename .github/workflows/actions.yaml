@@ -1,0 +1,23 @@
+name: Deploy to Raspberry Pi
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Remove old site files
+        run: sudo rm -rf /var/www/html/*
+
+      - name: Copy new files to web root
+        run: sudo cp -r ./* /var/www/html/
+
+      - name: Reload Nginx
+        run: sudo systemctl reload nginx
