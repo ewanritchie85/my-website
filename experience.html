@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="functions.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-content">
+            <h1 class="header1">Ewan Ritchie</h1>
+            <h3 class="header2">Junior Consultant</h3>
+        </div>
+        <div class="profile-block">
+            <img id="mug-shot" src="./images/mug-shot.png" title="Me">
+        </div>
+    </div>
+
+
+    <div class="github-icon-row">
+        <a class="github-link" href="https://github.com/ewanritchie85?tab=repositories" target="_blank">
+            <img src="./images/logos/github-logo.png" alt="GitHub logo" title="My GitHub">
+        </a>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/ewan-ritchie-2aa4b6281/" target="_blank">
+            <img src="./images/logos/linkedIn-logo.jpg" alt="LinkedIn logo" title="My LinkedIn"
+                style="width:25px; margin-left: 5px; margin-right: 15px;">
+        </a>
+    </div>
+    <div class="nav-buttons">
+        <a href="./index.html"><button class="buttons">About Me</button></a>
+        <a href="./experience.html"><button class="buttons">Experience</button></a>
+        <a href="./certificates.html"><button class="buttons">Certificates</button></a>
+    </div>
+
+    <div class="page-content">
+        <ul class="experience-list">
+            <li data-experience="metoffice-etl">Met Office ETL Pipeline</li>
+            <li data-experience="word-wheel-solver">Word Wheel Solver</li>
+            <li data-experience="task-manager-app">Task Manager App</li>
+            <li data-experience="my-portfolio-website">This Website</li>
+            <li data-experience="ten10-platform">Ten10 Platform Training</li>
+            <li data-experience="ten10-core">Ten10 Core Training</li>
+            <li data-experience="northcoders">Northcoders</li>
+        </ul>
+        <div class="experience-container">
+
+            <div class="experience" id="metoffice-etl" >
+                <a class="content-links" href="https://github.com/ewanritchie85/metoffice-etl" target="_blank">
+                    <h2>Met Office ETL Repository</h2>
+                </a>
+                <p>
+                    I designed and built an automated ETL pipeline that extracts weather forecast data from the Met
+                    Office Global Spot API, transforms it, and loads it into an AWS RDS (MySQL) database for analysis,
+                    with secure access provided via a bastion EC2 host and SSH tunneling.
+                </p>
+                <p>
+                    Provisioned with Terraform, the pipeline is fully cloud-native, running daily on ECS Fargate and
+                    triggered by EventBridge. Raw forecast data is first stored in S3, then processed using Pandas to clean and prepare the data before loading it into the database with SQLAlchemy. Deployment
+                    and execution are monitored via CloudWatch.
+                </p>
+                <p>
+                    The Python ETL application is fully containerised with Docker, enabling consistent deployment across
+                    environments. CI/CD pipelines are implemented using GitHub Actions to automate code quality checks,
+                    testing, and deployment to ECS Fargate.
+                </p>
+
+
+
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Aws" src="./images/logos/aws-logo.webp" height="60">
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60">
+                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                    <img title="DBeaver" src="./images/logos/dbeaver-logo.webp" height="60">
+                </div>
+                <div>
+                    <h3 class="diagram-h3">Infrastructure Diagram</h3>
+                    <img title="Met Office ETL AWS Architecture" src="./images/metoffice_infra.png" width="850"
+                        alt="Diagram of AWS Infrastructure" style="border-radius: 10px;">
+
+                </div>
+                <div>
+                    <h3 class="diagram-h3">Example Data</h3>
+                    <img title="DBeaver Screenshot 1" src="./images/dbeaver-screenshot1.jpg" alt="DBeaver Data 1"
+                        style="border-radius: 10px;">
+
+                    <img title="DBeaver Screenshot 2" src="./images/dbeaver-screenshot2.jpg" alt="DBeaver Data 2"
+                        style="border-radius: 10px;" width="900">
+
+                </div>
+
+            </div>
+
+            <div class="experience" id="word-wheel-solver">
+                <a class="content-links" href="https://github.com/ewanritchie85/wordwheel-solver" target="_blank">
+                    <h2>Word Wheel Solver Repository</h2>
+                </a>
+                <p>
+                    I developed a Python application to solve word wheel puzzles using the EWOL dictionary to
+                    identify
+                    all valid words.
+                    The application can be used via a command-line interface or accessed through a Flask-based API,
+                    which is integrated into a simple web interface further down this page.
+                </p>
+                <p>
+                    A GitHub Actions workflow automatically runs unit tests and enforces PEP8 formatting before
+                    changes
+                    are pushed to the repository.
+                    Upon successful unit testing, a second workflow deploys the app locally to my Raspberry Pi.
+                </p>
+                <p>
+                    API requests are routed through an Nginx reverse proxy.
+                </p>
+
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
+                    <img title="Flask" src="./images/logos/flask-logo.webp" height="60">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                </div>
+
+                <h3> Try it out</h3>
+                <form id="word-wheel-form">
+                    <label for="centre-letter">Centre Letter:</label>
+                    <input type="text" id="centre-letter" name="centre-letter" maxlength="1" required>
+                    <label for="outer-letters">Outer Letters:</label>
+                    <input type="text" id="outer-letters" name="outer-letters" maxlength="8" required>
+                    <button type="submit">Solve</button>
+                </form>
+                <div id="word-wheel-results-wrapper">
+                    <div id="word-wheel-results"></div>
+                    <!-- For local testing run  python3 -m http.server 8000 from root-->
+                    <!-- then go to  http://localhost:8000/experience.html -->
+                </div>
+            </div>
+
+            <div class="experience" id="task-manager-app">
+                <a class="content-links" href="https://github.com/ewanritchie85/Task-Manager" target="_blank">
+                    <h2>Task Manager Repository</h2>
+                </a>
+                <p>
+                    I developed a Java application to manage and schedule email reminders for day-to-day tasks and
+                    events, with all task data persisted to a CSV file on the host system-deployed on my Ubuntu
+                    Raspberry Pi 5.
+                    The app provides a CLI interface for adding, viewing, and deleting events, as well as
+                    configuring
+                    reminder times.
+                </p>
+                <p>
+                    A separate daemon process continuously monitors the CSV file, automatically dispatching email
+                    notifications as tasks are due and performing daily cleanup of expired events. The
+                    entire solution is Dockerized for portability and automation.
+                </p>
+                <p>
+                    I implemented a GitHub Actions CI/CD pipeline to build, test, and publish multi-architecture
+                    Docker
+                    images, with deployment orchestrated to my Raspberry Pi via a self-hosted runner upon each push
+                    to
+                    the repository.
+                </p>
+
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Java" src="./images/logos/java-logo.webp" height="60">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                </div>
+
+                <h3 class="diagram-h3">CLI Snapshot</h3>
+                <img title="Task Manager Interface" src="./images/taskman-snapshot.jpeg" width="400"
+                    alt="Task Manager Interface" style="border-radius: 10px;">
+
+
+            </div>
+
+
+            <div class="experience" id="my-portfolio-website">
+                <a class="content-links" href="https://github.com/ewanritchie85/my-website" target="_blank">
+                    <h2>My Website Repository</h2>
+                </a>
+                <p>
+                    This website was built using HTML, CSS, and JavaScript. It is hosted from home on my Ubuntu
+                    Raspberry Pi using Nginx.
+                    A self-hosted GitHub Actions runner on the Pi handles deployment locally on a Git commit, and
+                    the
+                    site is served securely
+                    over HTTPS.
+                    Dynamic DNS is implemented with a scheduled script that updates my Cloudflare DNS records
+                    every 10 minutes, ensuring the domain always resolves to my current
+                    public IP.
+
+                </p>
+
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                    <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                    <img title="Web" src="./images/logos/web_logos.webp" height="60">
+                </div>
+            </div>
+
+
+            <div class="experience" id="ten10-platform">
+                <a class="content-links" href="https://github.com/ewanritchie85/jenkins-project" target="_blank">
+                    <h2>Ten10 Jenkins Project Repository</h2>
+                </a>
+                <p>
+                    For my final project in Ten10's Platform Engineering stream, I deployed the frontend and backend
+                    of
+                    a basic website to an AWS ECS cluster using Fargate. The site was hosted across two Availability
+                    Zones, with an Application Load Balancer distributing traffic.
+                </p>
+                <p>
+                    The backend was built using a multi-stage Docker build, and all necessary AWS infrastructure was
+                    provisioned with Terraform. I implemented a Jenkins pipeline to automate the entire deployment
+                    process, triggered by Git commits.
+                </p>
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
+                    <img title="Jenkins" src="./images/logos/jenkins_logo.webp" height="60">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
+                </div>
+                <h3 class="diagram-h3">Infrastructure Diagram</h3>
+                <img title="Ten10 AWS Architecture" src="./images/Jenkins_project_diagram.jpg" width="600"
+                    alt="Diagram AWS infrastructure" style="border-radius: 10px;">
+
+            </div>
+
+            <div class="experience" id="ten10-core">
+                <a class="content-links" href="https://github.com/ewanritchie85/RockPaperScissors" target="_blank">
+                    <h2>Rock Paper Scissors Repository</h2>
+                </a>
+                <p>One of my assessments during Ten10's Core Training was to develop a
+                    Rock Paper Scissors game in Java in 8 hours. The game features a simple CLI interface
+                    and allows users to play a single round, or best of three, against the computer, which randomly
+                    selects its
+                    moves.
+                </p>
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Java" src="./images/logos/java-logo.webp" height="60">
+                    <img title="IntelliJ" src="./images/logos/intellij-logo.png" height="60">
+
+                </div>
+                <h3 class="diagram-h3">Gameplay Screenshot</h3>
+                <img title="Rock Paper Scissors Gameplay" src="./images/rockpaperscissors-screenshot.jpeg" width="600"
+                    alt="Rock Paper Scissors Gameplay" style="border-radius: 10px;">
+
+            </div>
+
+
+            <div class="experience" id="northcoders">
+                <a class="content-links" href="https://github.com/Shuhaan/project-onyx" target="_blank">
+                    <h2>Project Onyx ETL Repository</h2>
+                </a>
+                <p>
+                    For my final project of Northcoders' data engineering bootcamp,
+                    my small team created an ETL pipeline that extracted data from a Postgres OLTP database,
+                    stored it in AWS S3, processed it via Lambda functions, and loaded it into an OLAP Postgres DB.
+                    We monitored with Cloudwatch, used AWS Secrets Manager for credentials, and deployed with
+                    Terraform.
+                    Code was tested using Pytest via a GitHub Actions pipeline.
+                </p>
+                <div class="techstack-container">
+                    <h3 class="tech-stack-h3">Tech Stack</h3>
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
+                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60">
+                    <img title="Postgres" src="./images/logos/postgres-logo.webp" height="60">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
+                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
+                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                </div>
+                <h3 class="diagram-h3">Infrastructure Diagram</h3>
+                <img title="Northcoders AWS Architecture" src="./images/Totesys_ETL_pipeline.jpeg" width="600"
+                    alt="Diagram of ETL pipeline" style="border-radius: 10px;">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

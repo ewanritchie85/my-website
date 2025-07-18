@@ -1,0 +1,252 @@
+body {
+  background-color: #3d3d3d;
+  color: rgb(202, 202, 202);
+  font-family: Helvetica, Arial;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 16px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-bottom: 2px solid #a2a2a2;
+  position: relative;
+}
+
+#mug-shot {
+  margin-left: 20px;
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+  image-rendering: auto;
+}
+
+.nav-content {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: -60px;
+}
+
+.header1 {
+  margin: 0;
+  font-size: 28px;
+  margin-right: 10px;
+  padding-right: 5px;
+}
+
+.header2 {
+  margin: 0;
+  font-size: 14px;
+  padding-left: 5px;
+  margin-bottom: -5px;
+}
+
+.nav-buttons {
+  margin-top: -8px;
+  padding-top: -4px;
+  display: flex;
+  gap: 15px;
+}
+
+.buttons {
+  background-color: #2a2a2a;
+  color: rgb(202, 201, 201);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons:hover {
+  background-color: #4e4e4e;
+}
+
+.page-content {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  display: flex;
+}
+
+.content-links {
+  color: rgb(202, 202, 202);
+  font-family: Helvetica, Arial;
+}
+
+.content-links.hover {
+  color: rgb(170, 170, 170);
+}
+
+.tech-stack-h3 {
+  font-size: 18;
+}
+
+.experience-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 110px;
+}
+
+.experience-list li {
+  background-color: #2a2a2a;
+  color: rgb(202, 202, 202);
+  padding: 10px;
+  margin: 5px 0;
+  text-align:center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3d3d3d;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.experience-list li:hover {
+  background-color: #4e4e4e;
+  
+}
+
+.experience-container {
+  flex-grow: 1;
+  margin-left: 20px;
+  background-color: #3d3d3d;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.experience {
+  display: none;
+  font-size: 16px;
+
+}
+
+.experience.active {
+  display: block;
+  text-align: justify;
+}
+
+.page-content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.techstack-container {
+  display: block;
+  padding: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3d3d;
+  padding: 10px;
+  border-bottom: 2px solid #a2a2a2;
+}
+
+.profile-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+#mug-shot {
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.github-link img {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.2s ease;
+}
+
+.github-link img:hover {
+  filter: brightness(0.8);
+}
+
+
+.github-icon-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.github-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: filter 0.2s ease;
+}
+
+.github-link img:hover {
+  filter: brightness(0.8);
+}
+
+.certs-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: auto;
+  max-width: 900px;
+}
+
+.certs-row img {
+  flex: 0 0 auto;
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(83, 83, 83, 0.55);
+}
+
+#word-wheel-results-wrapper {
+  margin-top: 20px;
+}
+
+#word-wheel-results-wrapper h4 {
+  margin-bottom: 8px;
+}
+
+#word-wheel-results {
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 30px;
+  column-count: 3;
+  column-gap: 20px;
+  white-space: normal;
+}
+
+@media (max-width: 800px) {
+  .experience-container {
+    margin-left: 0;
+    padding: 10px;
+    max-width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .page-content {
+    flex-direction: column;
+    padding: 5px;
+  }
+  .experience img {
+    max-width: 100%;
+    height: auto;
+  }
+}
