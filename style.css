@@ -28,7 +28,7 @@
 }
 body {
   background-color: #101010;
-  color: #FFA500;
+  color: #CC8400;
   font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
   margin-left: 10%;
   margin-right: 10%;
@@ -41,7 +41,7 @@ body {
   align-items: center;
   background-color: #111;
   padding: 10px;
-  border-bottom: 2px solid #FFA500;
+  border-bottom: 2px solid #CC8400;
   position: relative;
   max-width: 1200px;
   margin-left: auto;
@@ -87,18 +87,18 @@ body {
 
 .buttons {
   background-color: #181818;
-  color: #FFA500;
+  color: #CC8400;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
-  border: 1.5px solid #FFA500;
+  border: 1.5px solid #CC8400;
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s, color 0.2s;
 }
 
 .buttons:hover {
-  background-color: #FFA500;
+  background-color: #CC8400;
   color: #181818;
 }
 
@@ -116,12 +116,12 @@ body {
 }
 
 .content-links {
-  color: #FFA500;
+  color: #CC8400;
   font-family: inherit;
 }
 
 .content-links.hover {
-  color: #FFB733;
+  color: #E69500;
 }
 
 .tech-stack-h3 {
@@ -137,19 +137,19 @@ body {
 
 .experience-list li {
   background-color: #181818;
-  color: #FFA500;
+  color: #CC8400;
   padding: 10px;
   margin: 5px 0;
   text-align:center;
   cursor: pointer;
   border-radius: 5px;
-  border: 2px solid #FFA500;
+  border: 2px solid #CC8400;
   transition: background-color 0.3s ease, color 0.2s;
   font-size: 14px;
 }
 
 .experience-list li:hover {
-  background-color: #FFA500;
+  background-color: #CC8400;
   color: #181818;
 }
 
