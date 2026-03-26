@@ -21,7 +21,7 @@ fetch('/spotify-info')
     const right = document.getElementById('spotify-top-tracks');
     let rightHtml = '';
     if (data.top_tracks && Array.isArray(data.top_tracks) && data.top_tracks.length > 0) {
-      rightHtml += '<h3>Top Tracks</h3><ul style="list-style:none;padding:0;">';
+      rightHtml += '<h3>Most listened to this month:</h3><ul style="list-style:none;padding:0;">';
       data.top_tracks.forEach(track => {
         rightHtml += `
           <li style="margin-bottom:18px;display:flex;align-items:center;">
