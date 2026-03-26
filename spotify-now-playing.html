@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Now Playing on Spotify</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="functions.js"></script>
 </head>
 <body>
-    <h1>Currently Playing on Spotify</h1>
-    <div id="spotify-now-playing">
-        <p>Loading...</p>
+    <div id="site-navbar"></div>
+    <script src="load-navbar.js"></script>
+
+    <div class="page-content">
+        <h1>Currently Playing on Spotify</h1>
+        <div id="spotify-now-playing">
+            <p>Loading...</p>
+        </div>
     </div>
     <script src="spotify-now-playing.js"></script>
 </body>
