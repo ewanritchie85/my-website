@@ -9,7 +9,7 @@
 
 .spotify-left {
   flex: 1 1 40%;
-  background: #181818;
+  background: #111111;
   padding: 24px 20px;
   border-radius: 12px;
   box-shadow: 0 2px 12px #111;
@@ -19,7 +19,7 @@
 
 .spotify-right {
   flex: 1 1 55%;
-  background: #181818;
+  background: #111111;
   padding: 24px 20px;
   border-radius: 12px;
   box-shadow: 0 2px 12px #111;
