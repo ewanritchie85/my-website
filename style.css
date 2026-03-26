@@ -1,3 +1,31 @@
+.spotify-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.spotify-left {
+  flex: 1 1 40%;
+  background: #181818;
+  padding: 24px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #111;
+  min-width: 260px;
+  max-width: 400px;
+}
+
+.spotify-right {
+  flex: 1 1 55%;
+  background: #181818;
+  padding: 24px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #111;
+  min-width: 260px;
+  max-width: 600px;
+}
 body {
   background-color: #101010;
   color: #FFA500;

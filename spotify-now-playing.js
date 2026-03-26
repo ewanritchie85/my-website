@@ -2,36 +2,42 @@
 fetch('/spotify-info')
   .then(response => response.json())
   .then(data => {
-    const container = document.getElementById('spotify-now-playing');
-    let html = '';
+    // Currently playing (left)
+    const left = document.getElementById('spotify-currently-playing');
+    let leftHtml = '';
     if (data.currently_playing && data.currently_playing.name) {
       const track = data.currently_playing;
-      html += `
-        <img src="${track.album_art}" alt="Album Art" style="height:100px;border-radius:8px;" />
-        <h2>${track.name}</h2>
-        <p>by ${track.artists.join(', ')}</p>
+      leftHtml += `
+        <img src="${track.album_art}" alt="Album Art" style="height:120px;border-radius:10px;box-shadow:0 2px 8px #222;" />
+        <h2 style="margin-top:16px;">${track.name}</h2>
+        <p style="font-size:1.1em;">by ${track.artists.join(', ')}</p>
       `;
     } else {
-      html += '<p>Not currently playing anything.</p>';
+      leftHtml += '<p>Not currently playing anything.</p>';
     }
+    left.innerHTML = leftHtml;
 
+    // Top tracks (right)
+    const right = document.getElementById('spotify-top-tracks');
+    let rightHtml = '';
     if (data.top_tracks && Array.isArray(data.top_tracks) && data.top_tracks.length > 0) {
-      html += '<h3>Top Tracks</h3><ul style="list-style:none;padding:0;">';
+      rightHtml += '<h3>Top Tracks</h3><ul style="list-style:none;padding:0;">';
       data.top_tracks.forEach(track => {
-        html += `
-          <li style="margin-bottom:16px;display:flex;align-items:center;">
-            <img src="${track.album_art}" alt="Album Art" style="height:50px;width:50px;border-radius:6px;margin-right:12px;" />
+        rightHtml += `
+          <li style="margin-bottom:18px;display:flex;align-items:center;">
+            <img src="${track.album_art}" alt="Album Art" style="height:60px;width:60px;border-radius:8px;margin-right:14px;box-shadow:0 1px 4px #222;" />
             <div>
               <strong>${track.name}</strong><br/>
-              <span>by ${track.artists.join(', ')}</span>
+              <span style="font-size:0.98em;">by ${track.artists.join(', ')}</span>
             </div>
           </li>
         `;
       });
-      html += '</ul>';
+      rightHtml += '</ul>';
     }
-    container.innerHTML = html;
+    right.innerHTML = rightHtml;
   })
   .catch(err => {
-    document.getElementById('spotify-now-playing').innerHTML = '<p>Could not load Spotify info.</p>';
+    document.getElementById('spotify-currently-playing').innerHTML = '<p>Could not load Spotify info.</p>';
+    document.getElementById('spotify-top-tracks').innerHTML = '';
   });
