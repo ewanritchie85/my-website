@@ -23,10 +23,12 @@
     </div>
     <script src="spotify-now-playing.js"></script>
         <script>
-            // Automatically load Spotify info on page load
-            if (typeof loadSpotifyExperience === 'function') {
-                loadSpotifyExperience();
-            }
+            // Ensure DOM is ready before calling the function
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof loadSpotifyExperience === 'function') {
+                    loadSpotifyExperience();
+                }
+            });
         </script>
 </body>
 </html>
