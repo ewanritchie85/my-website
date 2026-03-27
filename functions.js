@@ -5,29 +5,29 @@ $(document).ready(function () {
         $("#mug-shot").fadeOut(300).fadeIn(300);
     });
 
-    $(".experience").hide();
-    $(".experience-list li").removeClass("active");
-    $("#experience-default-message").show();
+    $(".project").hide();
+    $(".project-list li").removeClass("active");
+    $("#project-default-message").show();
     // Clear all dynamic containers on load
     $("#spotify-currently-playing").empty();
     $("#spotify-top-tracks").empty();
 
-    $(".experience-list li").click(function () {
-        $(".experience").removeClass("active").hide();
-        $("#experience-default-message").hide();
+    $(".project-list li").click(function () {
+        $(".project").removeClass("active").hide();
+        $("#project-default-message").hide();
 
-        const experienceId = $(this).data("experience");
-        $("#" + experienceId).fadeIn().addClass("active");
+        const projectId = $(this).data("project");
+        $("#" + projectId).fadeIn().addClass("active");
 
-        $(".experience-list li").removeClass("active");
+        $(".project-list li").removeClass("active");
         $(this).addClass("active");
 
         // If Spotify API section is activated, show loading and load the content
-        if (experienceId === "spotify-api") {
+        if (projectId === "spotify-api") {
             $("#spotify-currently-playing").html('<p>Loading...</p>');
             $("#spotify-top-tracks").empty();
-            if (typeof loadSpotifyExperience === "function") {
-                loadSpotifyExperience();
+            if (typeof loadSpotifyProject === "function") {
+                loadSpotifyProject();
             }
         } else {
             // Clear Spotify containers if switching away

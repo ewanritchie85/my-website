@@ -128,14 +128,14 @@ body {
   font-size: 18;
 }
 
-.experience-list {
+.project-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
   width: 110px;
 }
 
-.experience-list li {
+.project-list li {
   background-color: #181818;
   color: #CC8400;
   padding: 10px;
@@ -148,12 +148,12 @@ body {
   font-size: 14px;
 }
 
-.experience-list li:hover {
+.project-list li:hover {
   background-color: #CC8400;
   color: #181818;
 }
 
-.experience-container {
+.project-container {
   flex-grow: 1;
   margin-left: 20px;
   background-color: #141414;
@@ -165,13 +165,13 @@ body {
   box-sizing: border-box;
 }
 
-.experience {
+.project {
   display: none;
   font-size: 16px;
 
 }
 
-.experience.active {
+.project.active {
   display: block;
   text-align: justify;
 }
@@ -268,7 +268,7 @@ body {
 }
 
 @media (max-width: 800px) {
-  .experience-container {
+  .project-container {
     margin-left: 0;
     padding: 10px;
     max-width: 100vw;
@@ -279,7 +279,7 @@ body {
     flex-direction: column;
     padding: 5px;
   }
-  .experience img {
+  .project img {
     max-width: 100%;
     height: auto;
   }
