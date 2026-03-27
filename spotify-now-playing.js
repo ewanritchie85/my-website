@@ -12,7 +12,7 @@ function loadSpotifyExperience() {
         leftHtml += `
           <h3 style="margin-bottom:18px;">Currently listening to:</h3>
           <img src="${track.album_art}" alt="Album Art" style="height:250px;border-radius:10px;box-shadow:0 2px 8px #222;" />
-          <h2 style="margin-top:16px;">${track.name}</h2>
+          <h2 style="margin-top:16px;">${track.spotify_url ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>` : track.name}</h2>
           <p style="font-size:1.1em;">by ${track.artists.join(', ')}</p>
         `;
       } else {
@@ -30,7 +30,7 @@ function loadSpotifyExperience() {
             <li style="margin-bottom:18px;display:flex;align-items:center;">
               <img src="${track.album_art}" alt="Album Art" style="height:80px;width:80px;border-radius:8px;margin-right:14px;box-shadow:0 1px 4px #222;" />
               <div>
-                <strong>${track.name}</strong><br/>
+                <strong>${track.spotify_url ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>` : track.name}</strong><br/>
                 <span style="font-size:0.98em;">by ${track.artists.join(', ')}</span>
               </div>
             </li>
