@@ -26,8 +26,8 @@ $(document).ready(function () {
         if (projectId === "spotify-api") {
             $("#spotify-currently-playing").html('<p>Loading...</p>');
             $("#spotify-top-tracks").empty();
-            if (typeof loadSpotifyProject === "function") {
-                loadSpotifyProject();
+            if (typeof loadSpotifyExperience === "function") {
+                loadSpotifyExperience();
             }
         } else {
             // Clear Spotify containers if switching away
