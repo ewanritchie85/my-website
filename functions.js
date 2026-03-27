@@ -6,13 +6,12 @@ $(document).ready(function () {
     });
 
     $(".experience").hide();
-
-    const firstExperienceId = $(".experience-list li").first().data("experience");
-    $("#" + firstExperienceId).show().addClass("active");
-    $(".experience-list li").first().addClass("active");
+    $(".experience-list li").removeClass("active");
+    $("#experience-default-message").show();
 
     $(".experience-list li").click(function () {
         $(".experience").removeClass("active").hide();
+        $("#experience-default-message").hide();
 
         const experienceId = $(this).data("experience");
         $("#" + experienceId).fadeIn().addClass("active");
