@@ -36,7 +36,8 @@ def spotify_info():
         current_track = {
             'name': track['name'],
             'artists': [artist['name'] for artist in track['artists']],
-            'album_art': track['album']['images'][0]['url'] if track['album']['images'] else None
+            'album_art': track['album']['images'][0]['url'] if track['album']['images'] else None,
+            'spotify_url': track.get('external_urls', {}).get('spotify') if track.get('external_urls') else (f"https://open.spotify.com/track/{track.get('id')}" if track.get('id') else None)
         }
     else:
         current_track = None
@@ -48,7 +49,8 @@ def spotify_info():
         top_tracks.append({
             'name': item['name'],
             'artists': [artist['name'] for artist in item['artists']],
-            'album_art': item['album']['images'][0]['url'] if item['album']['images'] else None
+            'album_art': item['album']['images'][0]['url'] if item['album']['images'] else None,
+            'spotify_url': item.get('external_urls', {}).get('spotify') if item.get('external_urls') else (f"https://open.spotify.com/track/{item.get('id')}" if item.get('id') else None)
         })
 
     return jsonify({

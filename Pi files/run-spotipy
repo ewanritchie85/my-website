@@ -1,8 +1,26 @@
-#!/bin/bash
-# Create venv, install requirements, and run the Flask Spotify info server
+#!/usr/bin/env bash
+set -euo pipefail
+# run-spotipy: create venv (if missing), install deps, and run the Flask Spotify server
 
-python3 -m venv venv
+# Allow overriding the project dir via env, otherwise detect the script's parent directory.
+PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
+
+# If the script was installed in a system path (e.g. /usr/local/bin) and not in the
+# project, fall back to the common project path used by the service. Adjust if needed.
+if [ "$PROJECT_DIR" = "/usr/local/bin" ] || [ "$PROJECT_DIR" = "/usr/bin" ]; then
+	PROJECT_DIR="/home/ewanritchie/spotipy_project"
+fi
+
+cd "$PROJECT_DIR"
+
+# Use python3 explicitly to avoid 'python: command not found'. Create venv if missing.
+if [ ! -d venv ]; then
+	python3 -m venv venv
+fi
+
 source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-python get_spotify_info.py
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+
+# Run the app with the venv's python
+venv/bin/python3 get_spotify_info.py
