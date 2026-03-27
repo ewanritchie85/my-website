@@ -8,6 +8,9 @@ $(document).ready(function () {
     $(".experience").hide();
     $(".experience-list li").removeClass("active");
     $("#experience-default-message").show();
+    // Clear all dynamic containers on load
+    $("#spotify-currently-playing").empty();
+    $("#spotify-top-tracks").empty();
 
     $(".experience-list li").click(function () {
         $(".experience").removeClass("active").hide();
@@ -19,11 +22,17 @@ $(document).ready(function () {
         $(".experience-list li").removeClass("active");
         $(this).addClass("active");
 
-        // If Spotify API section is activated, load the content
+        // If Spotify API section is activated, show loading and load the content
         if (experienceId === "spotify-api") {
+            $("#spotify-currently-playing").html('<p>Loading...</p>');
+            $("#spotify-top-tracks").empty();
             if (typeof loadSpotifyExperience === "function") {
                 loadSpotifyExperience();
             }
+        } else {
+            // Clear Spotify containers if switching away
+            $("#spotify-currently-playing").empty();
+            $("#spotify-top-tracks").empty();
         }
     });
 
