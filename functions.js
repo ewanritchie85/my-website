@@ -19,6 +19,13 @@ $(document).ready(function () {
 
         $(".experience-list li").removeClass("active");
         $(this).addClass("active");
+
+        // If Spotify API section is activated, load the content
+        if (experienceId === "spotify-api") {
+            if (typeof loadSpotifyExperience === "function") {
+                loadSpotifyExperience();
+            }
+        }
     });
 
     $('.certs-row img').on('click', function () {
