@@ -37,7 +37,7 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #111;
   padding: 10px;
@@ -46,7 +46,6 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  box-sizing: border-box;
 }
 
 #mug-shot {
@@ -81,11 +80,9 @@ body {
 
 .nav-buttons {
   margin-top: -8px;
+  padding-top: -4px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 15px;
-  width: fit-content;
 }
 
 .buttons {
