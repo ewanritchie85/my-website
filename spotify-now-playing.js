@@ -1,4 +1,3 @@
-
 // Function to load Spotify experience section
 function loadSpotifyExperience() {
   fetch('/spotify-info')
@@ -7,37 +6,76 @@ function loadSpotifyExperience() {
       // Currently playing (left)
       const left = document.getElementById('spotify-currently-playing');
       let leftHtml = '';
+
       if (data.currently_playing && data.currently_playing.name) {
         const track = data.currently_playing;
+
+        const currentImage = `
+          <img src="${track.album_art}" alt="Album Art" style="height:250px;border-radius:10px;box-shadow:0 2px 8px #222;" />
+        `;
+
         leftHtml += `
           <h3 style="margin-bottom:18px;">Currently listening to:</h3>
-          <img src="${track.album_art}" alt="Album Art" style="height:250px;border-radius:10px;box-shadow:0 2px 8px #222;" />
-          <h2 style="margin-top:16px;">${track.spotify_url ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>` : track.name}</h2>
+
+          ${
+            track.spotify_url
+              ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer">${currentImage}</a>`
+              : currentImage
+          }
+
+          <h2 style="margin-top:16px;">
+            ${
+              track.spotify_url
+                ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>`
+                : track.name
+            }
+          </h2>
+
           <p style="font-size:1.1em;">by ${track.artists.join(', ')}</p>
         `;
       } else {
         leftHtml += '<p>Not currently listening to anything.</p>';
       }
+
       left.innerHTML = leftHtml;
 
       // Top tunes (right)
       const right = document.getElementById('spotify-top-tracks');
       let rightHtml = '';
+
       if (data.top_tracks && Array.isArray(data.top_tracks) && data.top_tracks.length > 0) {
         rightHtml += '<h3>Most listened to this month:</h3><ul style="list-style:none;padding:0;">';
+
         data.top_tracks.forEach(track => {
+          const topTrackImage = `
+            <img src="${track.album_art}" alt="Album Art" style="height:80px;width:80px;border-radius:8px;margin-right:14px;box-shadow:0 1px 4px #222;" />
+          `;
+
           rightHtml += `
             <li style="margin-bottom:18px;display:flex;align-items:center;">
-              <img src="${track.album_art}" alt="Album Art" style="height:80px;width:80px;border-radius:8px;margin-right:14px;box-shadow:0 1px 4px #222;" />
+              ${
+                track.spotify_url
+                  ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer">${topTrackImage}</a>`
+                  : topTrackImage
+              }
+
               <div>
-                <strong>${track.spotify_url ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>` : track.name}</strong><br/>
+                <strong>
+                  ${
+                    track.spotify_url
+                      ? `<a href="${track.spotify_url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${track.name}</a>`
+                      : track.name
+                  }
+                </strong><br/>
                 <span style="font-size:0.98em;">by ${track.artists.join(', ')}</span>
               </div>
             </li>
           `;
         });
+
         rightHtml += '</ul>';
       }
+
       right.innerHTML = rightHtml;
     })
     .catch(err => {
