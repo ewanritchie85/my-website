@@ -32,12 +32,37 @@
                 Click on a project to find out more.
             </div>
 
-            <div class="project" id="spotify-api" style="display:none;">
-                <div class="spotify-flex-container">
-                    <div id="spotify-currently-playing" class="spotify-left"></div>
-                    <div id="spotify-top-tracks" class="spotify-right"></div>
-                </div>
-            </div>
+ <div class="project" id="spotify-api" style="display:none;">
+
+    <p>
+        This project connects to the Spotify API to surface what I'm currently listening to, along with my most-played tracks for the month.
+        It's a small example of integrating a third-party API into a live application, handling authentication, data retrieval, and dynamic rendering on the frontend.
+    </p>
+
+    <div class="spotify-flex-container">
+        <div id="spotify-currently-playing" class="spotify-left"></div>
+        <div id="spotify-top-tracks" class="spotify-right"></div>
+    </div>
+
+    <p>
+        The Spotify section is powered by a backend endpoint that retrieves data from the Spotify API and returns it to the frontend as JSON.
+        The JavaScript on this page then fetches that data and dynamically updates the page with my current track and recent listening activity.
+    </p>
+
+    <p>
+        This gave me a chance to work with API authentication, JSON responses, frontend DOM updates, and serving dynamic content from a self-hosted site.
+        It also adds a more personal, live element to the portfolio rather than keeping everything completely static.
+    </p>
+
+    <div class="techstack-container">
+        <h3 class="tech-stack-h3">Tech Stack</h3>
+        <img title="JavaScript" src="./images/logos/web_logos.webp" height="60">
+        <img title="Spotify API" src="./images/logos/spotify-logo.webp" height="60">
+        <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60">
+        <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+    </div>
+
+</div>
 
             <div class="project" id="metoffice-etl" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/metoffice-etl" target="_blank">
