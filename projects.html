@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 
 <head>
     <title>Projects</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="functions.js"></script>
@@ -19,6 +20,7 @@
     <div class="page-content">
         <ul class="project-list">
             <li data-project="spotify-api">Spotify API</li>
+            <li data-project="notebook-data-refresher">Notebook Data Analysis Refresher</li>
             <li data-project="metoffice-etl">Met Office ETL Pipeline</li>
             <li data-project="word-wheel-solver">Word Wheel Solver</li>
             <li data-project="task-manager-app">Task Manager App</li>
@@ -32,7 +34,7 @@
                 Click on a project to find out more.
             </div>
 
- <div class="project" id="spotify-api" style="display:none;">
+<div class="project" id="spotify-api" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/my-website" target="_blank">
                     <h2>My Website Repository</h2>
                 </a>
@@ -57,15 +59,72 @@
 
     <div class="techstack-container">
         <h3 class="tech-stack-h3">Tech Stack</h3>
-        <img title="JavaScript" src="./images/logos/web_logos.webp" height="60">
-        <img title="Spotify API" src="./images/logos/spotify-logo.webp" height="60">
-        <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60">
-        <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+        <img title="JavaScript" src="./images/logos/web_logos.webp" height="60" alt="JavaScript logo">
+        <img title="Spotify API" src="./images/logos/spotify-logo.webp" height="60" alt="Spotify logo">
+        <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60" alt="Nginx logo">
+        <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
     </div>
 
 </div>
 
-            <div class="project" id="metoffice-etl" style="display:none;">
+<div class="project" id="notebook-data-refresher" style="display:none;">
+    <a class="content-links" href="https://github.com/ewanritchie85/Notebook-data-refresher" target="_blank">
+        <h2>Notebook Data Refresher Repository</h2>
+    </a>
+
+    <p>
+        In order to refresh my memory on data analysis techniques for a project at work, 
+        I built a Jupyter-based data analytics workspace for exploring customer, product, 
+        and order datasets.
+        The project uses Pandas to inspect and analyse raw mock data from CSV files, 
+        with separate notebooks for customer,product, order, and combined analysis.
+    </p>
+
+    <p>
+        I also created a PostgreSQL-backed workflow using SQLAlchemy and psycopg2. The database notebook loads
+        connection settings from environment variables, creates relational tables for customers, products, and
+        orders, and ingests the CSV data into a local PostgreSQL database for querying and analysis.
+    </p>
+
+    <p>
+        The analysis notebooks use Matplotlib, Seaborn, and Plotly to produce visualisations covering a 
+        variety of metrics that can be seen below.
+    </p>
+
+    <div class="techstack-container">
+        <h3 class="tech-stack-h3">Tech Stack</h3>
+        <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+        <img title="Jupyter" src="./images/logos/jupyter-logo.webp" height="60" alt="Jupyter logo">
+        <img title="Postgres" src="./images/logos/postgres-logo.webp" height="60" alt="Postgres logo">
+        <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60" alt="Pandas logo">
+        <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60" alt="SQLAlchemy logo">
+    </div>
+    <div class="example-data-container" style="margin-top:16px;">
+        <h3 class="analysis-h3">Example Data</h3>
+        <div class="example-data-gallery analysis-gallery" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <img src="./images/notebook_data_graphs/notabook_data_1.jpg" alt="Raw notebook data 1" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_2.jpg" alt="Raw notebook data 2" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_3.jpg" alt="Raw notebook data 3" style="max-width:300px;height:auto;border-radius:6px;">
+        </div>
+    </div>
+    <div class="analysis-container" style="margin-top:16px;">
+        <h3 class="analysis-h3">Analysis</h3>
+        <div class="analysis-gallery" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_1.jpg" alt="Notebook graph 1" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_2.jpg" alt="Notebook graph 2" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_3.jpg" alt="Notebook graph 3" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_4.jpg" alt="Notebook graph 4" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_5.jpg" alt="Notebook graph 5" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_6.jpg" alt="Notebook graph 6" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_7.jpg" alt="Notebook graph 7" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/notebook_data_graphs/notabook_data_graph_8.jpg" alt="Notebook graph 8" style="max-width:300px;height:auto;border-radius:6px;">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="project" id="metoffice-etl" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/metoffice-etl" target="_blank">
                     <h2>Met Office ETL Repository</h2>
                 </a>
@@ -89,16 +148,16 @@
 
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="Aws" src="./images/logos/aws-logo.webp" height="60">
-                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
-                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
-                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
-                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
-                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60">
-                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60">
-                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
-                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
-                    <img title="DBeaver" src="./images/logos/dbeaver-logo.webp" height="60">
+                    <img title="Aws" src="./images/logos/aws-logo.webp" height="60" alt="AWS logo">
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60" alt="Terraform logo">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60" alt="Docker logo">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60" alt="Pandas logo">
+                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60" alt="SQLAlchemy logo">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60" alt="Pytest logo">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
+                    <img title="DBeaver" src="./images/logos/dbeaver-logo.webp" height="60" alt="DBeaver logo">
                 </div>
                 <div>
                     <h3 class="diagram-h3">Infrastructure Diagram</h3>
@@ -118,7 +177,7 @@
 
             </div>
 
-            <div class="project" id="word-wheel-solver" style="display:none;">
+<div class="project" id="word-wheel-solver" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/wordwheel-solver" target="_blank">
                     <h2>Word Wheel Solver Repository</h2>
                 </a>
@@ -155,17 +214,17 @@
 
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
-                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
-                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
-                    <img title="Flask" src="./images/logos/flask-logo.webp" height="60">
-                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60" alt="Pytest logo">
+                    <img title="Flask" src="./images/logos/flask-logo.webp" height="60" alt="Flask logo">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
                 </div>
 
 
-            </div>
+</div>
 
-            <div class="project" id="task-manager-app" style="display:none;">
+<div class="project" id="task-manager-app" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/Task-Manager" target="_blank">
                     <h2>Task Manager Repository</h2>
                 </a>
@@ -192,10 +251,10 @@
 
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="Java" src="./images/logos/java-logo.webp" height="60">
-                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
-                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
-                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
+                    <img title="Java" src="./images/logos/java-logo.webp" height="60" alt="Java logo">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60" alt="Docker logo">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
                 </div>
 
                 <h3 class="diagram-h3">CLI Snapshot</h3>
@@ -203,10 +262,10 @@
                     alt="Task Manager Interface" style="border-radius: 10px;">
 
 
-            </div>
+</div>
 
 
-            <div class="project" id="my-portfolio-website" style="display:none;">
+<div class="project" id="my-portfolio-website" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/my-website" target="_blank">
                     <h2>My Website Repository</h2>
                 </a>
@@ -225,15 +284,15 @@
 
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
-                    <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60">
-                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60">
-                    <img title="Web" src="./images/logos/web_logos.webp" height="60">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+                    <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60" alt="Nginx logo">
+                    <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
+                    <img title="Web" src="./images/logos/web_logos.webp" height="60" alt="Web technologies logo">
                 </div>
-            </div>
+</div>
 
 
-            <div class="project" id="ten10-platform">
+                <div class="project" id="ten10-platform" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/jenkins-project" target="_blank">
                     <h2>Ten10 Jenkins Project Repository</h2>
                 </a>
@@ -250,18 +309,18 @@
                 </p>
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60">
-                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
-                    <img title="Jenkins" src="./images/logos/jenkins_logo.webp" height="60">
-                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60">
+                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60" alt="AWS logo">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60" alt="Terraform logo">
+                    <img title="Jenkins" src="./images/logos/jenkins_logo.webp" height="60" alt="Jenkins logo">
+                    <img title="Docker" src="./images/logos/docker_logo.webp" height="60" alt="Docker logo">
                 </div>
                 <h3 class="diagram-h3">Infrastructure Diagram</h3>
                 <img title="Ten10 AWS Architecture" src="./images/Jenkins_project_diagram.jpg" width="600"
                     alt="Diagram AWS infrastructure" style="border-radius: 10px;">
 
-            </div>
+</div>
 
-            <div class="project" id="ten10-core">
+<div class="project" id="ten10-core">
                 <a class="content-links" href="https://github.com/ewanritchie85/RockPaperScissors" target="_blank">
                     <h2>Rock Paper Scissors Repository</h2>
                 </a>
@@ -273,18 +332,18 @@
                 </p>
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="Java" src="./images/logos/java-logo.webp" height="60">
-                    <img title="IntelliJ" src="./images/logos/intellij-logo.png" height="60">
+                    <img title="Java" src="./images/logos/java-logo.webp" height="60" alt="Java logo">
+                    <img title="IntelliJ" src="./images/logos/intellij-logo.png" height="60" alt="IntelliJ logo">
 
                 </div>
                 <h3 class="diagram-h3">Gameplay Screenshot</h3>
                 <img title="Rock Paper Scissors Gameplay" src="./images/rockpaperscissors-screenshot.jpeg" width="600"
                     alt="Rock Paper Scissors Gameplay" style="border-radius: 10px;">
 
-            </div>
+</div>
 
 
-            <div class="project" id="northcoders">
+<div class="project" id="northcoders">
                 <a class="content-links" href="https://github.com/Shuhaan/project-onyx" target="_blank">
                     <h2>Project Onyx ETL Repository</h2>
                 </a>
@@ -298,22 +357,27 @@
                 </p>
                 <div class="techstack-container">
                     <h3 class="tech-stack-h3">Tech Stack</h3>
-                    <img title="Python" src="./images/logos/python-logo.webp" height="60">
-                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60">
-                    <img title="Postgres" src="./images/logos/postgres-logo.webp" height="60">
-                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60">
-                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60">
-                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60">
-                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60">
-                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60">
+                    <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+                    <img title="AWS" src="./images/logos/aws-logo.webp" height="60" alt="AWS logo">
+                    <img title="Postgres" src="./images/logos/postgres-logo.webp" height="60" alt="Postgres logo">
+                    <img title="Terraform" src="./images/logos/terraform-logo.webp" height="60" alt="Terraform logo">
+                    <img title="Pandas" src="./images/logos/pandas-logo.webp" height="60" alt="Pandas logo">
+                    <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60" alt="Pytest logo">
+                    <img title="SQL Alchemy" src="./images/logos/sqla-logo.png" height="60" alt="SQLAlchemy logo">
+                    <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
                 </div>
                 <h3 class="diagram-h3">Infrastructure Diagram</h3>
                 <img title="Northcoders AWS Architecture" src="./images/Totesys_ETL_pipeline.jpeg" width="600"
                     alt="Diagram of ETL pipeline" style="border-radius: 10px;">
 
-            </div>
+                </div>
+</div>
+        <div id="lightbox-modal"
+            style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:9999;">
+            <img id="lightbox-img" src=""
+                style="max-width:70vw; max-height:70vh; border-radius:12px; box-shadow:0 0 20px #000;">
         </div>
     </div>
-</body>
+    </body>
 
-</html>
+    </html>

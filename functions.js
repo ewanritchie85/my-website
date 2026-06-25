@@ -36,12 +36,14 @@ $(document).ready(function () {
         }
     });
 
-    $('.certs-row img').on('click', function () {
+    $('.certs-row img, .analysis-gallery img, .outputs-gallery img').on('click', function () {
+        console.log('lightbox open:', $(this).attr('src'));
         $('#lightbox-img').attr('src', $(this).attr('src'));
         $('#lightbox-modal').css('display', 'flex').hide().fadeIn(300);
     });
 
     $('#lightbox-modal, #lightbox-img').on('click', function (e) {
+        console.log('lightbox close');
         $('#lightbox-modal').fadeOut(300);
     });
     
