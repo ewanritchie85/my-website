@@ -19,6 +19,7 @@
 
     <div class="page-content">
         <ul class="project-list">
+            <li data-project="nikitai">NikitAI</li>
             <li data-project="spotify-api">Spotify API</li>
             <li data-project="notebook-data-refresher">Notebook Data Analysis Refresher</li>
             <li data-project="metoffice-etl">Met Office ETL Pipeline</li>
@@ -33,6 +34,49 @@
             <div id="project-default-message" style="padding: 16px 0; text-align: center; color: #CC8400; font-size: 1.3em;">
                 Click on a project to find out more.
             </div>
+
+<div class="project" id="nikitai" style="display:none;">
+    <a class="content-links" href="https://github.com/ewanritchie85/nikitai" target="_blank">
+        <h2>NikitAI Repository</h2>
+    </a>
+    <p>
+        <strong>Work in progress.</strong> NikitAI is a personal AI assistant I'm building to help
+        manage day-to-day admin - currently it connects to my Outlook email and calendar via the
+        Microsoft Graph API, using Claude for conversational tool-use: reading and searching email,
+        summarising messages, managing mail folders, and creating calendar events, all through
+        natural language.
+    </p>
+    <p>
+        Any action with a real-world consequence — sending an email, creating a calendar event,
+        deleting a mail folder — is gated behind an explicit human confirmation step enforced in
+        code, not just prompted for, so nothing happens without in-the-loop approval regardless of
+        what the model decides. Authentication uses MSAL's device-code flow against Azure AD, with
+        local token caching.
+    </p>
+    <p>
+        Currently a FastAPI backend with a custom lightweight web UI, run locally. Next up:
+        username/password authentication, self-hosting on my Raspberry Pi with secure external
+        access, voice input/output, and a separate assistant domain for Linux/networking queries
+        with awareness of my own scripts and infrastructure.
+    </p>
+    <div class="techstack-container">
+        <h3 class="tech-stack-h3">Tech Stack</h3>
+        <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+        <img title="FastAPI" src="./images/logos/fastapi-logo.webp" height="60" alt="FastAPI logo">
+        <img title="Anthropic Claude" src="./images/logos/claude-logo.webp" height="60" alt="Claude logo">
+        <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60" alt="Pytest logo">
+        <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+        <img title="Web" src="./images/logos/web_logos.webp" height="60" alt="Web technologies logo">
+    </div>
+    <div class="example-data-container" style="margin-top:16px;">
+        <h3 class="analysis-h3">Example Interaction</h3>
+        <div class="example-data-gallery analysis-gallery" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <img src="./images/nikitai_screenshots/nikitai-screengrab1.jpg" alt="NikitAI conversation clarifying event end time" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/nikitai_screenshots/nikitai-screengrab2.jpg" alt="NikitAI confirmation card before creating a calendar event" style="max-width:300px;height:auto;border-radius:6px;">
+            <img src="./images/nikitai_screenshots/calendar-event.jpg" alt="Resulting calendar event created via NikitAI" style="max-width:300px;height:auto;border-radius:6px;">
+        </div>
+    </div>
+</div>
 
 <div class="project" id="spotify-api" style="display:none;">
                 <a class="content-links" href="https://github.com/ewanritchie85/my-website" target="_blank">
@@ -371,6 +415,7 @@
                     alt="Diagram of ETL pipeline" style="border-radius: 10px;">
 
                 </div>
+                
 </div>
         <div id="lightbox-modal"
             style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:9999;">
