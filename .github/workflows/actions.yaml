@@ -13,11 +13,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Remove old site files
-        run: sudo rm -rf /var/www/html/*
+      - name: Deploy Backend
+        run: |
+          sudo cp "Pi files/get_spotify_info.py" /home/ewanritchie/spotipy_project/
+          sudo systemctl restart spotify-flask
 
-      - name: Copy new files to web root
-        run: sudo cp -r ./* /var/www/html/
+      - name: Deploy Frontend
+        run: |
+          sudo rm -rf /var/www/html/*
+          sudo cp -r ./* /var/www/html/
+          sudo rm -rf "/var/www/html/Pi files"
+          sudo rm -f /var/www/html/.gitignore /var/www/html/README.md
 
       - name: Reload Nginx
         run: sudo systemctl reload nginx

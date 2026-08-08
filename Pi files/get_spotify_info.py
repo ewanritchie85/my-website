@@ -13,9 +13,9 @@ app = Flask(__name__)
 # Configure logging for headless environments
 logging.basicConfig(level=logging.INFO)
 
-# Set cache path securely in the same directory as the script
+# Set cache path securely, respecting the Pi's systemd override file
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CACHE_PATH = os.path.join(BASE_DIR, ".cache-spotify")
+CACHE_PATH = os.getenv('SPOTIPY_CACHE_PATH', os.path.join(BASE_DIR, ".spotipy_cache"))
 
 # Initialize Spotify Auth ONCE at startup
 auth_manager = SpotifyOAuth(
