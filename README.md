@@ -1,120 +1,137 @@
 
 # My Personal Website
 
-a GitHub Actions workflow copies the site files over SSH and reloads the Nginx service.
+This repository contains the source code for my portfolio website. It is a static HTML/CSS/JavaScript site with a couple of dynamic integrations served from backend APIs.
 
-# My Personal Website
+The site is hosted on my Raspberry Pi behind Nginx, and deployment is automated with GitHub Actions on a self-hosted runner.
 
-This is the source code for my portfolio website, designed to showcase my skills, projects, and projects in platform engineering and data engineering. It is hosted using Nginx on my Raspberry Pi at home.
+## Live Site Content
 
-## Features
+The website currently has three top-level pages:
 
-- Hosted on a Raspberry Pi with Nginx
-- CI/CD deployment using GitHub Actions
-- Live Spotify listening data displayed via a custom API
+- About Me page
+- Projects page
+- Certificates page
+
+The Projects page includes sections for:
+
+- NikitAI
+- Spotify API
+- Notebook Data Analysis Refresher
+- Met Office ETL Pipeline
+- Word Wheel Solver
+- Task Manager App
+- This Website
+- Ten10 Platform Training
+- Ten10 Core Training
+- Northcoders
 
 ## Tech Stack
 
-- HTML5, CSS3, JavaScript
-- Nginx (hosting)
-- GitHub Actions (CI/CD)
-- Raspberry Pi (Ubuntu Server)
-- Python (Flask, Spotipy) for Spotify API
+- HTML5
+- CSS3
+- JavaScript (jQuery)
+- Nginx on Raspberry Pi (hosting)
+- GitHub Actions (deployment)
+- Python Flask + Spotipy (Spotify backend in Pi files)
 
-## Deployment Overview
+## Repository Structure
 
-The site is deployed to a Raspberry Pi running Ubuntu Server and Nginx. On push to the main branch, a GitHub Actions workflow copies the site files over SSH and reloads the Nginx service.
+- index.html: About Me page
+- projects.html: Interactive projects page
+- certificates.html: Certificates gallery
+- navbar.html + load-navbar.js: Shared navbar injected into each page
+- functions.js: Core client-side behavior (project switching, lightbox, Word Wheel form submit)
+- spotify-now-playing.js: Fetches and renders Spotify data from spotify-info endpoint
+- style.css: Global styling and responsive layout
+- images/: Logos, screenshots, diagrams, certificates, and profile image
+- Pi files/get_spotify_info.py: Flask app exposing spotify-info endpoint
+- Pi files/run-spotipy: Helper script to create venv, install deps, and run Flask app
+- Pi files/requirements.txt: Python dependencies for Spotify backend
 
-## Hosting & Backend Setup
+## Dynamic Features
 
-### 1. Raspberry Pi Setup
-- Install Ubuntu Server on your Raspberry Pi.
-- Set up a static IP or use Dynamic DNS for remote access.
-- Install required packages:
-	```sh
-	sudo apt update && sudo apt install nginx python3 python3-pip python3-venv git
-	```
+### 1. Spotify Now Playing
 
-### 2. Clone the Repository
-- Clone this repo to your Pi:
-	```sh
-	git clone <your-repo-url>
-	cd my-website
-	```
+Frontend behavior:
 
-### 3. Set Up the Python Backend (Spotify API)
-- Create a Python virtual environment and install dependencies:
-	```sh
-	python3 -m venv venv
-	source venv/bin/activate
-	pip install flask spotipy
-	```
-- Add your Spotify API credentials to the backend config or environment variables as required by your Flask app.
+- Triggered when Spotify API project section is opened on projects page.
+- Calls spotify-info and renders:
+  - currently playing track
+  - monthly top tracks
 
-### 4. Create a systemd Service for Flask
-- Create a file at `/etc/systemd/system/spotify-flask.service`:
-	```ini
-	[Unit]
-	Description=Spotify Flask Backend
-	After=network.target
+Backend behavior:
 
-	[Service]
-	User=pi
-	WorkingDirectory=/home/pi/my-website/Pi files
-	ExecStart=/home/pi/my-website/venv/bin/python3 /home/pi/my-website/Pi files/get_spotify_info.py
-	Restart=always
-	Environment=FLASK_ENV=production
+- Implemented in Pi files/get_spotify_info.py.
+- Flask route: /spotify-info
+- Default Flask bind: 0.0.0.0:5050
+- Uses environment variables:
+  - SPOTIPY_CLIENT_ID
+  - SPOTIPY_CLIENT_SECRET
+  - SPOTIPY_REDIRECT_URI
 
-	[Install]
-	WantedBy=multi-user.target
-	```
-- Reload systemd and start the service:
-	```sh
-	sudo systemctl daemon-reload
-	sudo systemctl enable spotify-flask
-	sudo systemctl start spotify-flask
-	sudo systemctl status spotify-flask
-	```
+### 2. Word Wheel Solver
 
-### 5. Nginx Configuration
-- Edit `/etc/nginx/sites-available/default` (or your custom site config):
-	```nginx
-	server {
-			listen 80;
-			server_name your.domain.com;
-			root /home/pi/my-website;
-			index index.html;
+Frontend behavior:
 
-			location / {
-					try_files $uri $uri/ =404;
-			}
+- Form on the projects page posts JSON to /api/solve.
+- Expects a response shape containing words array.
 
-			location /spotify-info {
-					proxy_pass http://127.0.0.1:5000/spotify-info;
-					proxy_set_header Host $host;
-					proxy_set_header X-Real-IP $remote_addr;
-					proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-					proxy_set_header X-Forwarded-Proto $scheme;
-			}
-	}
-	```
-- Test and reload Nginx:
-	```sh
-	sudo nginx -t
-	sudo systemctl reload nginx
-	```
+Note: This repository contains only the frontend call for /api/solve. The solver backend is expected to be hosted separately and reverse-proxied by Nginx.
 
-### 6. GitHub Actions CI/CD
-- Set up a GitHub Actions workflow to deploy on push:
-	- Use `scp` or `rsync` to copy files to the Pi.
-	- Use `ssh` to reload Nginx and restart the Flask service.
+## Local Development
 
-## Spotify API Integration
-- The Flask app runs on the Pi, using Spotipy to fetch current listening and top track data from Spotify.
-- The Flask app serves a `/spotify-info` JSON endpoint, proxied by Nginx and accessible to all website visitors.
-- The Flask app is managed as a systemd service, ensuring it runs in the background and starts automatically on reboot.
-- The website fetches and displays live Spotify data using this endpoint.
+To preview the static site locally from the repository root:
+
+python3 -m http.server 8000
+
+Then open:
+
+- http://localhost:8000/index.html
+- http://localhost:8000/projects.html
+- http://localhost:8000/certificates.html
+
+If no local backend is running, Spotify and Word Wheel API sections will not return live data.
+
+## Spotify Backend (Pi files)
+
+From Pi files directory:
+
+1. Ensure python3 and python3-venv are installed.
+2. Create a .env file with SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI.
+3. Run:
+
+./run-spotipy
+
+This script will:
+
+- create venv if missing
+- upgrade pip
+- install dependencies from requirements.txt
+- run get_spotify_info.py
+
+## Deployment (Current Workflow)
+
+GitHub Actions workflow file:
+
+- .github/workflows/actions.yaml
+
+Current workflow behavior on push to master:
+
+1. Runs on self-hosted runner.
+2. Checks out repository.
+3. Removes existing files from /var/www/html.
+4. Copies repository files into /var/www/html.
+5. Reloads Nginx.
+
+## Production Routing Notes
+
+For full site functionality in production, Nginx should:
+
+- serve static files from web root
+- route /spotify-info to Flask app on port 5050
+- route /api/solve to Word Wheel backend service
 
 ## License
 
-This project is for personal and educational use.
+Personal and educational use.
