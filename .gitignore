@@ -4,5 +4,7 @@ venv/
 
 node_modules/
 
+.cache
+
 .DS_Store
 images/.DS_Store
