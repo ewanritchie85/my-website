@@ -41,10 +41,13 @@
     </a>
     <p>
         <strong>Work in progress.</strong> NikitAI is a personal AI assistant I'm building to help
-        manage day-to-day admin - currently it connects to my Outlook email and calendar via the
-        Microsoft Graph API, using Claude for conversational tool-use: reading and searching email,
+        manage day-to-day admin, run as an orchestrator over specialised sub-agents: <em>Organiser</em>
+        handles Outlook email and calendar via the Microsoft Graph API — reading and searching email,
         summarising messages, managing mail folders, and creating calendar events, all through
-        natural language.
+        natural language — while <em>Platform Nerd</em> is being built out to reason about my home
+        network and infrastructure with awareness of local logs and notes. A <em>Trainer</em> domain
+        for Garmin health and fitness data is planned next. When routing between domains is unclear,
+        the orchestrator asks rather than guesses.
     </p>
     <p>
         Any action with a real-world consequence — sending an email, creating a calendar event,
@@ -54,10 +57,10 @@
         local token caching.
     </p>
     <p>
-        Currently a FastAPI backend with a custom lightweight web UI, run locally. Next up:
-        username/password authentication, self-hosting on my Raspberry Pi with secure external
-        access, voice input/output, and a separate assistant domain for Linux/networking queries
-        with awareness of my own scripts and infrastructure.
+        Runs as a FastAPI backend with a custom lightweight web UI (chat interface with Approve/Deny
+        buttons for confirmations), currently local-only. Next up: self-hosting on my Raspberry Pi as
+        its own service, secure external access, app-level authentication, voice input/output, and
+        finishing out the Platform Nerd and Trainer domains.
     </p>
     <a class="content-links" href="https://ewanritchie85.github.io/NikitAI/nikitai-architecture.html" target="_blank" rel="noopener noreferrer" title="Overview of the NikitAI architecture">
         <h2>Architecture Overview</h2>
