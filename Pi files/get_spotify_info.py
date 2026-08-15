@@ -28,7 +28,6 @@ auth_manager = SpotifyOAuth(
 )
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
-@app.route('/spotify-info')
 def artist_data(artists):
     return [
         {
@@ -40,6 +39,7 @@ def artist_data(artists):
         for artist in artists
     ]
 
+@app.route('/spotify-info')
 def spotify_info():
     try:
         # 1. Fetch currently playing track
