@@ -1,4 +1,15 @@
 // Function to load Spotify experience section
+function renderArtists(artists) {
+  return artists
+    .map(artist => {
+      if (artist.url) {
+        return `<a href="${artist.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${artist.name}</a>`;
+      }
+      return artist.name;
+    })
+    .join(', ');
+}
+
 function loadSpotifyExperience() {
   fetch('/spotify-info')
     .then(response => response.json())
@@ -31,7 +42,7 @@ function loadSpotifyExperience() {
             }
           </h2>
 
-          <p style="font-size:1.1em;">by ${track.artists.join(', ')}</p>
+          <p style="font-size:1.1em;">by ${renderArtists(track.artists)}</p>
         `;
       } else {
         leftHtml += '<p>Not currently listening to anything.</p>';
@@ -67,7 +78,7 @@ function loadSpotifyExperience() {
                       : track.name
                   }
                 </strong><br/>
-                <span style="font-size:0.98em;">by ${track.artists.join(', ')}</span>
+                <span style="font-size:0.98em;">by ${renderArtists(track.artists)}</span>
               </div>
             </li>
           `;

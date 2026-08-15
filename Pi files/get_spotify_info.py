@@ -29,6 +29,17 @@ auth_manager = SpotifyOAuth(
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
 @app.route('/spotify-info')
+def artist_data(artists):
+    return [
+        {
+            'name': artist['name'],
+            'url': artist.get('external_urls', {}).get('spotify') or (
+                f"https://open.spotify.com/artist/{artist['id']}" if artist.get('id') else None
+            )
+        }
+        for artist in artists
+    ]
+
 def spotify_info():
     try:
         # 1. Fetch currently playing track
@@ -39,7 +50,7 @@ def spotify_info():
             track = current['item']
             current_track = {
                 'name': track['name'],
-                'artists': [artist['name'] for artist in track['artists']],
+                'artists': artist_data(track['artists']),
                 'album_art': track['album']['images'][0]['url'] if track['album']['images'] else None,
                 'spotify_url': track.get('external_urls', {}).get('spotify') or (
                     f"https://open.spotify.com/track/{track['id']}" if track.get('id') else None
@@ -54,7 +65,7 @@ def spotify_info():
             for item in top_tracks_data['items']:
                 top_tracks.append({
                     'name': item['name'],
-                    'artists': [artist['name'] for artist in item['artists']],
+                    'artists': artist_data(item['artists']),
                     'album_art': item['album']['images'][0]['url'] if item['album']['images'] else None,
                     'spotify_url': item.get('external_urls', {}).get('spotify') or (
                         f"https://open.spotify.com/track/{item['id']}" if item.get('id') else None
