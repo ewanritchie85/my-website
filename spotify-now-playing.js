@@ -2,10 +2,13 @@
 function renderArtists(artists) {
   return artists
     .map(artist => {
-      if (artist.url) {
+      if (typeof artist === 'string') {
+        return artist;
+      }
+      if (artist && artist.url) {
         return `<a href="${artist.url}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">${artist.name}</a>`;
       }
-      return artist.name;
+      return artist ? artist.name : '';
     })
     .join(', ');
 }
