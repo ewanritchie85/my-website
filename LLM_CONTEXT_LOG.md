@@ -48,6 +48,16 @@ my-website/
 
 ## Change Log Entries
 
+### 2026-08-22 — NikitAI screenshots: three-domain gallery side-by-side
+
+- **Date:** 2026-08-22
+- **Scope:** `projects.html:79-86`, `images/nikitai_screenshots/nikitai_screengrab_organiser.jpg` (new), `images/nikitai_screenshots/nikitai_screengrab_platform_nerd.jpg` (new), `images/nikitai_screenshots/nikitai_screengrab_trainer.jpg` (new), `images/nikitai_screenshots/nikitai-screengrab1.jpg` (deleted), `images/nikitai_screenshots/nikitai-screengrab2.jpg` (deleted), `images/nikitai_screenshots/calendar-event.jpg` (deleted)
+- **Summary:** Replaced NikitAI `Example Interaction` gallery (2 + 1 stacked images) with single flex row of 3 images side-by-side: Organiser (left), Platform Nerd (centre), Trainer (right) at `300×340` `object-fit:cover` within `.example-data-gallery.analysis-gallery`.
+- **Why:** User supplied new domain-specific captures; requested side-by-side layout preserving existing click-to-expand/close lightbox.
+- **Impact:** `projects.html:81-84` now references new filenames in correct order; lightbox unchanged (`js/functions.js:43` `'.analysis-gallery img'` selector still applies, no JS/CSS change needed, responsive wrap via `flex-wrap`).
+- **Validation:** Verified `projects.html:79-86` order organiser→platform_nerd→trainer; `ls images/nikitai_screenshots/` shows 3 new jpgs (112K/106K/150K), old 3 deleted; `grep 'nikitai_screengrab'` confirms 3 hits with correct alt text.
+- **Follow-ups:** None. Old images removed from index; deploy will `cp -r ./*` new screenshots to `/var/www/html/images/nikitai_screenshots/`.
+
 ### 2026-08-22 — Fix Node 20 deprecation in GitHub Actions (checkout v5 / setup-python v6)
 
 - **Date:** 2026-08-22
