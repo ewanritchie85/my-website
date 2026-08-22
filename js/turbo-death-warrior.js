@@ -54,7 +54,7 @@ function tdwSetState(st) {
             `<span class="tdw-dim">HP</span> ` +
             `<span class="${hpCls}">[${tdwBar(p.hp, p.max_hp)}]</span> ` +
             `<span class="tdw-dim">${p.hp}/${p.max_hp}</span> ` +
-            `<span class="tdw-dim">WPN:</span>${weapon} ` +
+            `<span class="tdw-dim">WEAPON:</span>${weapon} ` +
             `<span class="tdw-dim">POT:</span><span class="tdw-amber">${potions}</span> ` +
             `<span class="tdw-dim">CRYSTAL:</span><span class="${p.has_turbo_crystal ? "tdw-amber" : "tdw-dim"}">${crystal}</span>`;
     }
