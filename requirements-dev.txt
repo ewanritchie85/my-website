@@ -1,0 +1,6 @@
+pytest>=7
+beautifulsoup4>=4.12
+lxml
+Flask>=3
+python-dotenv
+spotipy

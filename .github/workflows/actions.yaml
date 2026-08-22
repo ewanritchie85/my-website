@@ -6,8 +6,31 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Run tests
+        run: pytest -v --tb=short
+
   deploy:
+    needs: test
     runs-on: self-hosted
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout repository
@@ -23,7 +46,8 @@ jobs:
           sudo rm -rf /var/www/html/*
           sudo cp -r ./* /var/www/html/
           sudo rm -rf /var/www/html/backend
-          sudo rm -f /var/www/html/.gitignore /var/www/html/README.md /var/www/html/.editorconfig
+          sudo rm -f /var/www/html/.gitignore /var/www/html/README.md /var/www/html/.editorconfig /var/www/html/requirements-dev.txt
+          sudo rm -rf /var/www/html/tests /var/www/html/.pytest_cache
 
       - name: Reload Nginx
         run: sudo systemctl reload nginx

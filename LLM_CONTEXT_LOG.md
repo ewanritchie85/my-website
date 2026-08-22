@@ -4,9 +4,9 @@
 
 ## Current Snapshot
 
-- **Stack:** Static `HTML5/CSS3/jQuery` frontend (`index.html`, `projects.html`, `certificates.html`, `navbar.html`), `css/style.css`, `js/{functions,load-navbar,spotify-now-playing,turbo-death-warrior}.js`, Flask+Spotipy backend `backend/get_spotify_info.py` on `:5050` (`/spotify-info`), Nginx on Raspberry Pi (reverse proxy), GitHub Actions self-hosted runner `master`.
-- **Hosting:** Pi at `/var/www/html` (static), `/home/ewanritchie/spotipy_project/` (Flask via `systemd: spotify-flask`), Cloudflare DNS. Local dev: `python3 -m http.server 8000`.
-- **2026-08-22 state:** Structure refactor + context log staged but **not yet committed** on `master` (ahead of `origin/master`). `git status` shows 19 staged paths: renames `style.css->css/style.css`, `*.js->js/*.js`, `Pi files/->backend/`, plus `.editorconfig/.gitattributes`, `LLM_CONTEXT_LOG.md` (new), fixes to `*.html`, `README.md`, `package.json`, `.gitignore`, `.github/workflows/actions.yaml`. Verified `200` via `curl` on `css/style.css` and `js/*.js`. Untracked ignored: `.cache`, `.DS_Store`, `venv/` (`AGENTS.md` untracked).
+- **Stack:** Static `HTML5/CSS3/jQuery` frontend (`index.html`, `projects.html`, `certificates.html`, `navbar.html`), `css/style.css`, `js/{functions,load-navbar,spotify-now-playing,turbo-death-warrior}.js`, Flask+Spotipy backend `backend/get_spotify_info.py` on `:5050` (`/spotify-info`), `pytest` suite `tests/` (40 tests), Nginx on Raspberry Pi (reverse proxy), GitHub Actions `test`+`deploy` pipeline `master`.
+- **Hosting:** Pi at `/var/www/html` (static), `/home/ewanritchie/spotipy_project/` (Flask via `systemd: spotify-flask`), Cloudflare DNS. Local dev: `python3 -m http.server 8000` or `pytest -v` / `npm test`.
+- **2026-08-22 state:** Structure refactor committed `3b7d807` (pushed). New test suite + CI gating staged (not yet committed): `tests/{conftest, test_backend_spotify, test_frontend_structure, test_javascript_logic, test_integration}.py` (40 tests), `requirements-dev.txt`, `package.json:6` `scripts.test`, `.github/workflows/actions.yaml:10` `test` job. Verified `pytest -v 40 passed` + `curl 200` on `css/style.css`/`js/*.js`. Untracked: `AGENTS.md`.
 - **Live content:** 11 project sections in `projects.html:22-33` (NikitAI, Spotify API, Notebook Data, Met Office ETL, Word Wheel, Turbo Death Warrior, Task Manager, My Website, Ten10 x2, Northcoders).
 
 ## Architecture
@@ -18,15 +18,17 @@ my-website/
 ├── js/{functions.js, load-navbar.js, spotify-now-playing.js, turbo-death-warrior.js}
 ├── images/{logos/, certs/, nikitai_screenshots/, notebook_data_graphs/, ...}
 ├── backend/{get_spotify_info.py, requirements.txt, run-spotipy}
-├── .github/workflows/actions.yaml
+├── tests/{conftest.py, test_backend_spotify.py, test_frontend_structure.py, test_javascript_logic.py, test_integration.py}
+├── requirements-dev.txt
+├── .github/workflows/actions.yaml  # test (ubuntu-latest) -> deploy (self-hosted, needs:test)
 ├── .editorconfig / .gitattributes / .gitignore
-└── LLM_CONTEXT_LOG.md / README.md / AGENTS.md
+└── LLM_CONTEXT_LOG.md / README.md / AGENTS.md / package.json
 ```
 
 - **Frontend routing:** No bundler. `js/load-navbar.js:1` `fetch('navbar.html')` → `#site-navbar`. `js/functions.js:1` handles `.project` show/hide, lightbox, Word Wheel `POST /api/solve` → expects `{words:[]}`.
 - **Dynamic:** Spotify section `projects.html:91` triggers `js/spotify-now-playing.js` → `GET /spotify-info` → renders `currently_playing` + `top_tracks` (10, `short_term`). Backend: `backend/get_spotify_info.py:22` `SpotifyOAuth` (`user-read-currently-playing user-top-read`, `cache_path` from `SPOTIPY_CACHE_PATH`, `open_browser=False`).
 - **Infra:** Nginx serves `/var/www/html`, proxies `/spotify-info→127.0.0.1:5050` and `/api/solve` → Word Wheel backend, `/tdw-api/` → Turbo Death Warrior service. `backend/run-spotipy:1` creates `venv`, installs `backend/requirements.txt` ( `flask`, `python-dotenv` ), runs `get_spotify_info.py`.
-- **Deploy:** `.github/workflows/actions.yaml:16-29` on `push:master` → `sudo cp backend/get_spotify_info.py /home/ewanritchie/spotipy_project/` + `systemctl restart spotify-flask` → `rm -rf /var/www/html/*` + `cp -r ./*` → `rm -rf backend` + `reload nginx`. `cp -r ./*` intentionally skips dotfiles (`.env` never deployed).
+- **Deploy:** `.github/workflows/actions.yaml:10-50` — `test` job on `ubuntu-latest` (`setup-python 3.11`, `pip install -r backend/requirements.txt -r requirements-dev.txt`, `pytest -v`) gates `deploy` job (`needs:test`, `if: refs/heads/master`, `runs-on:self-hosted`) → `sudo cp backend/get_spotify_info.py` + `systemctl restart spotify-flask` → `rm -rf /var/www/html/*` + `cp -r ./*` → `rm -rf backend/tests/.pytest_cache` + `reload nginx`. `cp -r ./*` intentionally skips dotfiles (`.env` never deployed). Local `npm test` → `pytest -v` via `package.json:7`.
 
 ## Safety + Auth Boundaries
 
@@ -38,15 +40,25 @@ my-website/
 
 ## Active Priorities
 
-- [ ] Commit & push staged 2026-08-22 refactor (verify Pi deploy succeeds; `spotify-flask` restarts).
-- [ ] Verify Nginx proxy still routes `/spotify-info` and `/api/solve` → test live Spotify + Word Wheel after deploy.
-- [ ] Remove local `Pi files/` reference drift (grep confirms none); update any external docs linking to old path.
+- [x] Commit & push 2026-08-22 refactor `3b7d807` — done.
+- [ ] Deploy with new test gate — push test suite and watch `test` → `deploy` on Pi (verify `spotify-flask` restart).
+- [ ] Verify Nginx proxy still routes `/spotify-info` and `/api/solve`/`/tdw-api/` → test live Spotify + Word Wheel + TDW after deploy.
 - [ ] Consider `venv/` cleanup on Pi (`backend/run-spotipy` creates its own venv inside `spotipy_project/`; repo `venv/` is local-only).
 - [ ] Add `robots.txt`/`404.html` and subresource integrity if adding bundler later — deferred.
 
 ## Change Log Entries
 
-### 2026-08-22 — Project structure best-practice refactor (staged)
+### 2026-08-22 — Full test suite + CI gating (staged)
+
+- **Date:** 2026-08-22
+- **Scope:** `tests/conftest.py` (new), `tests/test_backend_spotify.py` (new, 11 tests), `tests/test_frontend_structure.py` (new, 17 tests), `tests/test_javascript_logic.py` (new, 10 tests), `tests/test_integration.py` (new, 2 tests), `requirements-dev.txt` (new), `.github/workflows/actions.yaml`, `package.json`, `.gitignore`, `venv/` (deps installed)
+- **Summary:** Added 40-test `pytest` suite (backend mocked `spotipy`, frontend BeautifulSoup, JS pure-function emulation, integration `http.server` smoke) and `test` job in `actions.yaml:10` that installs `backend/requirements.txt` + `requirements-dev.txt` and runs `pytest -v` on `ubuntu-latest`, gating `deploy` (`needs:test`, `if: master`, `runs-on:self-hosted`). Updated `package.json:7` `scripts.test: pytest -v`, extended `.gitignore:8` with `.venv/.pytest_cache/.spotipy_cache/*.log`, and cleaned deploy step to purge `tests/.pytest_cache/requirements-dev.txt` from web root.
+- **Why:** No automated verification prior; deploy copied untested static + Flask code directly to Pi. Need regression safety for asset refs, `Pi files→backend` rename, `CRLF` fixes, and API error paths.
+- **Impact:** `push:master` now fails fast if tests break; local `pytest -v` / `npm test` / `venv/bin/python -m pytest` all 40 passed; Pi only deploys after `test` greens.
+- **Validation:** `~/.pyenv/versions/3.11.1/bin/python -m pytest tests/ -v` → `40 passed in 1.23s`; `venv/bin/python -m pytest -q` → `40 passed in 1.89s`; `python -c "import yaml; yaml.safe_load(open('.github/workflows/actions.yaml'))"` → syntax ok; `git diff --cached --stat` → 8 paths for this entry.
+- **Follow-ups:** Push and watch GitHub Actions `test` → `deploy`; add coverage (`pytest-cov`) and `flake8` later if desired.
+
+### 2026-08-22 — Project structure best-practice refactor (committed 3b7d807)
 
 - **Date:** 2026-08-22
 - **Scope:** `index.html`, `projects.html` (+copy edit `oldschool→old school`), `certificates.html`, `css/style.css` (from `style.css`), `js/*.js` (from `*.js`), `Pi files/`→`backend/`, `.gitignore`, `.editorconfig` (new), `.gitattributes` (new), `README.md`, `package.json`, `.github/workflows/actions.yaml`, `images/logos/.DS_Store` (deleted), `LLM_CONTEXT_LOG.md` (new)
