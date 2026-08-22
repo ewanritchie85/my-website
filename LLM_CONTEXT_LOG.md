@@ -7,7 +7,7 @@
 - **Stack:** Static `HTML5/CSS3/jQuery` frontend (`index.html`, `projects.html`, `certificates.html`, `navbar.html`), `css/style.css`, `js/{functions,load-navbar,spotify-now-playing,turbo-death-warrior}.js`, Flask+Spotipy backend `backend/get_spotify_info.py` on `:5050` (`/spotify-info`), `pytest` suite `tests/` (40 tests), Nginx on Raspberry Pi (reverse proxy), GitHub Actions `test`+`deploy` pipeline `master`.
 - **Hosting:** Pi at `/var/www/html` (static), `/home/ewanritchie/spotipy_project/` (Flask via `systemd: spotify-flask`), Cloudflare DNS. Local dev: `python3 -m http.server 8000` or `pytest -v` / `npm test`.
 - **2026-08-22 state:** Structure refactor committed `3b7d807` (pushed). New test suite + CI gating staged (not yet committed): `tests/{conftest, test_backend_spotify, test_frontend_structure, test_javascript_logic, test_integration}.py` (40 tests), `requirements-dev.txt`, `package.json:6` `scripts.test`, `.github/workflows/actions.yaml:10` `test` job. Verified `pytest -v 40 passed` + `curl 200` on `css/style.css`/`js/*.js`. Untracked: `AGENTS.md`.
-- **Live content:** 11 project sections in `projects.html:22-33` (NikitAI, Spotify API, Notebook Data, Met Office ETL, Word Wheel, Turbo Death Warrior, Task Manager, My Website, Ten10 x2, Northcoders).
+- **Live content:** 11 project sections in `projects.html:22-33` (NikitAI, Turbo Death Warrior, Spotify API, Notebook Data, Met Office ETL, Word Wheel, Task Manager, My Website, Ten10 x2, Northcoders).
 
 ## Architecture
 
@@ -47,6 +47,16 @@ my-website/
 - [ ] Add `robots.txt`/`404.html` and subresource integrity if adding bundler later — deferred.
 
 ## Change Log Entries
+
+### 2026-08-22 — Reorder Turbo Death Warrior to second in projects list
+
+- **Date:** 2026-08-22
+- **Scope:** `projects.html:22-33`
+- **Summary:** Moved `<li data-project="turbo-death-warrior">` from sixth to second position, directly underneath `nikitai`, in `.project-list`.
+- **Why:** Requested prominence for Turbo Death Warrior as second item.
+- **Impact:** Visual order on `/projects.html` now NikitAI → Turbo Death Warrior → Spotify API → …; no JS logic change (selection by `data-project` id).
+- **Validation:** Verified `projects.html:22-33` order via file read; `li` sequence correct.
+- **Follow-ups:** Optionally reorder `div#turbo-death-warrior` content block to match list order (currently remains after `word-wheel-solver`).
 
 ### 2026-08-22 — Full test suite + CI gating (staged)
 
