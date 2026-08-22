@@ -470,3 +470,188 @@ body {
     column-count: 1;
   }
 }
+
+/* =========================
+   TURBO DEATH WARRIOR
+   ========================= */
+
+#tdw-game {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#tdw-crt {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: #1a0d00;
+  border: 2px solid #8b5a00;
+  border-radius: 8px;
+}
+
+#tdw-app {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 14px;
+}
+
+.tdw-header {
+  text-align: center;
+  border: 4px double #8b5a00;
+  background: #1a0f00;
+  padding: 10px 14px;
+}
+
+.tdw-titlebox {
+  font-size: clamp(16px, 3.2vw, 24px);
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffaa00;
+}
+
+.tdw-subtitle {
+  margin-top: 4px;
+  color: #8b5a00;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.tdw-panel {
+  background: #1a0f00;
+  border: 1px solid #8b5a00;
+  overflow: hidden;
+}
+
+#tdw-status, #tdw-enemy {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+#tdw-status pre, #tdw-enemy pre {
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.tdw-hpbar.ok { color: #ffaa00; }
+.tdw-hpbar.warn { color: #ffcc44; }
+.tdw-hpbar.crit { color: #ff4747; }
+.tdw-dim { color: #8b5a00; }
+.tdw-amber { color: #ffcc44; }
+
+#tdw-enemy { display: none; }
+#tdw-enemy.visible { display: block; }
+#tdw-enemy .hpbar { color: #ff4747; }
+
+#tdw-content {
+  flex: 1;
+  padding: 14px 16px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tdw-line { white-space: pre-wrap; animation: tdw-fadein .25s ease; }
+@keyframes tdw-fadein { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+.tdw-spacer { height: .65em; }
+.tdw-line.tdw-err { color: #ff4747; }
+
+#tdw-controls { display: flex; flex-direction: column; gap: 4px; }
+
+.tdw-choice {
+  text-align: left;
+  font: inherit;
+  color: #ffaa00;
+  padding: 4px 10px;
+  border-left: 3px solid transparent;
+  width: 100%;
+  user-select: none;
+}
+
+.tdw-choice .tdw-num { color: #ffcc44; margin-right: 6px; }
+.tdw-choice .tdw-num::before { content: "["; }
+.tdw-choice .tdw-num::after { content: "]"; }
+.tdw-choice.active {
+  background: #ffaa00;
+  color: #1a0d00;
+  border-left-color: #ffcc44;
+}
+
+#tdw-nameform { display: flex; gap: 8px; align-items: center; display: none; }
+#tdw-nameform.visible { display: flex; }
+#tdw-nameform .tdw-prompt { color: #ffcc44; white-space: nowrap; }
+#tdw-nameform input {
+  flex: 1;
+  font: inherit;
+  color: #ffaa00;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #8b5a00;
+  padding: 8px 4px;
+  outline: none;
+  caret-color: #ffaa00;
+}
+#tdw-nameform input::placeholder { color: #5c3d00; }
+#tdw-nameform button { display: none; }
+
+.tdw-hint {
+  color: #5c3d00;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.tdw-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, .22) 0px,
+    rgba(0, 0, 0, .22) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.tdw-vignette {
+  position: absolute;
+  inset: -2%;
+  z-index: 6;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .55) 100%);
+}
+
+.tdw-sweep {
+  position: absolute;
+  left: 0; right: 0;
+  height: 120px;
+  z-index: 6;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(255, 200, 80, .06), transparent);
+  animation: tdw-sweepmove 8s linear infinite;
+}
+@keyframes tdw-sweepmove {
+  from { top: -25%; }
+  to { top: 110%; }
+}
+
+@media (max-width: 800px) {
+  #tdw-crt {
+    height: 500px;
+  }
+}

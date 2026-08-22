@@ -16,6 +16,7 @@
 
     <!-- Ensure Spotify JS is loaded for the projects page -->
     <script src="spotify-now-playing.js?v=3"></script>
+    <script src="turbo-death-warrior.js"></script>
 
     <div class="page-content">
         <ul class="project-list">
@@ -24,6 +25,7 @@
             <li data-project="notebook-data-refresher">Notebook Data Analysis Refresher</li>
             <li data-project="metoffice-etl">Met Office ETL Pipeline</li>
             <li data-project="word-wheel-solver">Word Wheel Solver</li>
+            <li data-project="turbo-death-warrior">Turbo Death Warrior</li>
             <li data-project="task-manager-app">Task Manager App</li>
             <li data-project="my-portfolio-website">This Website</li>
             <li data-project="ten10-platform">Ten10 Platform Training</li>
@@ -275,6 +277,33 @@
                 </div>
 
 
+</div>
+
+<div class="project" id="turbo-death-warrior" style="display:none;">
+    <a class="content-links" href="https://github.com/ewanritchie85/turbo-death-warrior" target="_blank">
+        <h2>Turbo Death Warrior Repository</h2>
+    </a>
+    <p>
+        A browser-based retro CLI adventure game where you fight a Caffeinated Orc, loot the Turbo Crystal,
+        and take back the realm's Wi-Fi router from the Mega-Goblin King. Built with a pure Python game engine
+        and a CRT-styled terminal frontend.
+    </p>
+    <p>
+        The game runs as a standalone Python service on the Raspberry Pi (systemd, port 8001), with the frontend
+        embedded in this page. API requests are routed through an Nginx reverse proxy at <code>/tdw-api/</code>.
+    </p>
+    <h3>Play:</h3>
+    <div id="tdw-game"></div>
+
+    <div class="techstack-container">
+        <h3 class="tech-stack-h3">Tech Stack</h3>
+        <img title="Python" src="./images/logos/python-logo.webp" height="60" alt="Python logo">
+        <img title="GitHub Actions" src="./images/logos/github-logo.png" height="60" alt="GitHub Actions logo">
+        <img title="Pytest" src="./images/logos/pytest-logo.webp" height="60" alt="Pytest logo">
+        <img title="Nginx" src="./images/logos/nginx_logo.webp" height="60" alt="Nginx logo">
+        <img title="Linux" src="./images/logos/linux_logo.webp" height="60" alt="Linux logo">
+        <img title="Raspberry Pi" src="./images/logos/Raspberry-Pi-Logo.webp" height="60" alt="Raspberry Pi logo">
+    </div>
 </div>
 
 <div class="project" id="task-manager-app" style="display:none;">

@@ -29,6 +29,10 @@ $(document).ready(function () {
             if (typeof loadSpotifyExperience === "function") {
                 loadSpotifyExperience();
             }
+        } else if (projectId === "turbo-death-warrior") {
+            if (typeof window.initTurboDeathWarrior === "function") {
+                window.initTurboDeathWarrior();
+            }
         } else {
             // Clear Spotify containers if switching away
             $("#spotify-currently-playing").empty();
