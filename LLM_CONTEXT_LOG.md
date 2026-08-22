@@ -48,6 +48,16 @@ my-website/
 
 ## Change Log Entries
 
+### 2026-08-22 — NikitAI Trainer domain implemented — update project description
+
+- **Date:** 2026-08-22
+- **Scope:** `projects.html:44-67`
+- **Summary:** Updated NikitAI intro to mark `Trainer` as implemented (ingests Garmin Connect activity/sleep/HR/HRV/Body Battery to summarise load/recovery/readiness) and `Platform Nerd` as active (systemd/Nginx/Runner awareness); trimmed `Next up` to exclude Trainer (`expanding the Platform Nerd domain`).
+- **Why:** Trainer sub-agent is now live, matching the new `nikitai_screengrab_trainer.jpg` evidence — prior copy said `Trainer ... is planned next`.
+- **Impact:** `projects.html:49-51` now lists all three sub-agents as operational; `projects.html:66-67` roadmap no longer lists Trainer as future work.
+- **Validation:** Verified `projects.html:44-67` text via file read; `pytest -q` still 40 passed; no lightbox/CSS/JS change.
+- **Follow-ups:** None. Future: consider adding Garmin sync detail/tech stack icon if Trainer gets dedicated logo.
+
 ### 2026-08-22 — NikitAI screenshots: three-domain gallery side-by-side
 
 - **Date:** 2026-08-22

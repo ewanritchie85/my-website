@@ -46,10 +46,12 @@
         manage day-to-day admin, run as an orchestrator over specialised sub-agents: <em>Organiser</em>
         handles Outlook email and calendar via the Microsoft Graph API — reading and searching email,
         summarising messages, managing mail folders, and creating calendar events, all through
-        natural language — while <em>Platform Nerd</em> is being built out to reason about my home
-        network and infrastructure with awareness of local logs and notes. A <em>Trainer</em> domain
-        for Garmin health and fitness data is planned next. When routing between domains is unclear,
-        the orchestrator asks rather than guesses.
+        natural language — while <em>Platform Nerd</em> reasons about my home network and infrastructure
+        with awareness of local systemd services, Nginx and GitHub Actions runners on the Pi, and
+        <em>Trainer</em> handles Garmin health and fitness — ingesting Connect data on activity,
+        sleep, HR, HRV and Body Battery to summarise training load, recovery and readiness and advise
+        on next sessions. When routing between domains is unclear, the orchestrator asks rather than
+        guesses.
     </p>
     <p>
         Any action with a real-world consequence — sending an email, creating a calendar event,
@@ -62,7 +64,7 @@
         Runs as a FastAPI backend with a custom lightweight web UI (chat interface with Approve/Deny
         buttons for confirmations), currently local-only. Next up: self-hosting on my Raspberry Pi as
         its own service, secure external access, app-level authentication, voice input/output, and
-        finishing out the Platform Nerd and Trainer domains.
+        expanding the Platform Nerd domain.
     </p>
     <a class="content-links" href="https://ewanritchie85.github.io/NikitAI/nikitai-architecture.html" target="_blank" rel="noopener noreferrer" title="Overview of the NikitAI architecture">
         <h2>Architecture Overview</h2>
