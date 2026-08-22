@@ -28,7 +28,7 @@ my-website/
 - **Frontend routing:** No bundler. `js/load-navbar.js:1` `fetch('navbar.html')` → `#site-navbar`. `js/functions.js:1` handles `.project` show/hide, lightbox, Word Wheel `POST /api/solve` → expects `{words:[]}`.
 - **Dynamic:** Spotify section `projects.html:91` triggers `js/spotify-now-playing.js` → `GET /spotify-info` → renders `currently_playing` + `top_tracks` (10, `short_term`). Backend: `backend/get_spotify_info.py:22` `SpotifyOAuth` (`user-read-currently-playing user-top-read`, `cache_path` from `SPOTIPY_CACHE_PATH`, `open_browser=False`).
 - **Infra:** Nginx serves `/var/www/html`, proxies `/spotify-info→127.0.0.1:5050` and `/api/solve` → Word Wheel backend, `/tdw-api/` → Turbo Death Warrior service. `backend/run-spotipy:1` creates `venv`, installs `backend/requirements.txt` ( `flask`, `python-dotenv` ), runs `get_spotify_info.py`.
-- **Deploy:** `.github/workflows/actions.yaml:10-50` — `test` job on `ubuntu-latest` (`setup-python 3.11`, `pip install -r backend/requirements.txt -r requirements-dev.txt`, `pytest -v`) gates `deploy` job (`needs:test`, `if: refs/heads/master`, `runs-on:self-hosted`) → `sudo cp backend/get_spotify_info.py` + `systemctl restart spotify-flask` → `rm -rf /var/www/html/*` + `cp -r ./*` → `rm -rf backend/tests/.pytest_cache` + `reload nginx`. `cp -r ./*` intentionally skips dotfiles (`.env` never deployed). Local `npm test` → `pytest -v` via `package.json:7`.
+- **Deploy:** `.github/workflows/actions.yaml:10-53` — `test` job on `ubuntu-latest` (`actions/checkout@v5`, `actions/setup-python@v6` Node 24, `setup-python 3.11`, `pip install -r backend/requirements.txt -r requirements-dev.txt`, `pytest -v`) gates `deploy` job (`needs:test`, `if: refs/heads/master`, `runs-on:self-hosted`, `actions/checkout@v5`) → `sudo cp backend/get_spotify_info.py` + `systemctl restart spotify-flask` → `rm -rf /var/www/html/*` + `cp -r ./*` → `rm -rf backend/tests/.pytest_cache` + `reload nginx`. `cp -r ./*` intentionally skips dotfiles (`.env` never deployed). Local `npm test` → `pytest -v` via `package.json:7`. Requires self-hosted runner ≥ v2.327.1 for Node 24 (checkout v5 / setup-python v6).
 
 ## Safety + Auth Boundaries
 
@@ -47,6 +47,16 @@ my-website/
 - [ ] Add `robots.txt`/`404.html` and subresource integrity if adding bundler later — deferred.
 
 ## Change Log Entries
+
+### 2026-08-22 — Fix Node 20 deprecation in GitHub Actions (checkout v5 / setup-python v6)
+
+- **Date:** 2026-08-22
+- **Scope:** `.github/workflows/actions.yaml:13,16,37`
+- **Summary:** Bumped `actions/checkout@v4→@v5` (test + deploy jobs) and `actions/setup-python@v5→@v6` to Node 24 runtime.
+- **Why:** GitHub warns `Node.js 20 is deprecated` and force-runs `checkout@v4`/`setup-python@v5` on Node 24; scheduled removal 2026-09-16. Bump silences warnings per https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/.
+- **Impact:** Both `test` (ubuntu-latest) and `deploy` (self-hosted) jobs now run natively on Node 24; no behavior change.
+- **Validation:** `python3 -c "import yaml; yaml.safe_load(open('.github/workflows/actions.yaml'))"` → `yaml ok`; verified file shows `checkout@v5` (x2) and `setup-python@v6`.
+- **Follow-ups:** Ensure Pi self-hosted runner ≥ v2.327.1 (`actions/runner` release for Node 24) else `checkout@v5` will fail to run.
 
 ### 2026-08-22 — Reorder Turbo Death Warrior to second in projects list
 
