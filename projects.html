@@ -284,13 +284,14 @@
         <h2>Turbo Death Warrior Repository</h2>
     </a>
     <p>
-        A browser-based retro CLI adventure game where you fight a Caffeinated Orc, loot the Turbo Crystal,
-        and take back the realm's Wi-Fi router from the Mega-Goblin King. Built with a pure Python game engine
-        and a CRT-styled terminal frontend.
+        An oldschool text-based adventure game with a retro CRT terminal frontend.
     </p>
     <p>
-        The game runs as a standalone Python service on the Raspberry Pi (systemd, port 8001), with the frontend
-        embedded in this page. API requests are routed through an Nginx reverse proxy at <code>/tdw-api/</code>.
+        Every push runs the Python test suite via GitHub Actions, then deploys automatically
+        through a self-hosted runner on this site's Raspberry Pi: the game engine is installed
+        into a fresh virtual environment and restarted as a systemd service, with Nginx reverse
+        proxying API requests to it at <code>/tdw-api/</code>. No cloud hosting, no manual
+        deploys — push to <code>main</code> and it's live.
     </p>
     <h3>Play:</h3>
     <div id="tdw-game"></div>
