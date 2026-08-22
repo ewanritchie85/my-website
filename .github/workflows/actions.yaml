@@ -15,15 +15,15 @@ jobs:
 
       - name: Deploy Backend
         run: |
-          sudo cp "Pi files/get_spotify_info.py" /home/ewanritchie/spotipy_project/
+          sudo cp backend/get_spotify_info.py /home/ewanritchie/spotipy_project/
           sudo systemctl restart spotify-flask
 
       - name: Deploy Frontend
         run: |
           sudo rm -rf /var/www/html/*
           sudo cp -r ./* /var/www/html/
-          sudo rm -rf "/var/www/html/Pi files"
-          sudo rm -f /var/www/html/.gitignore /var/www/html/README.md
+          sudo rm -rf /var/www/html/backend
+          sudo rm -f /var/www/html/.gitignore /var/www/html/README.md /var/www/html/.editorconfig
 
       - name: Reload Nginx
         run: sudo systemctl reload nginx

@@ -33,21 +33,22 @@ The Projects page includes sections for:
 - JavaScript (jQuery)
 - Nginx on Raspberry Pi (hosting)
 - GitHub Actions (deployment)
-- Python Flask + Spotipy (Spotify backend in Pi files)
+- Python Flask + Spotipy (Spotify backend in backend/)
 
 ## Repository Structure
 
 - index.html: About Me page
 - projects.html: Interactive projects page
 - certificates.html: Certificates gallery
-- navbar.html + load-navbar.js: Shared navbar injected into each page
-- functions.js: Core client-side behavior (project switching, lightbox, Word Wheel form submit)
-- spotify-now-playing.js: Fetches and renders Spotify data from spotify-info endpoint
-- style.css: Global styling and responsive layout
+- navbar.html + js/load-navbar.js: Shared navbar injected into each page
+- js/functions.js: Core client-side behavior (project switching, lightbox, Word Wheel form submit)
+- js/spotify-now-playing.js: Fetches and renders Spotify data from spotify-info endpoint
+- js/turbo-death-warrior.js: CRT terminal game frontend
+- css/style.css: Global styling and responsive layout
 - images/: Logos, screenshots, diagrams, certificates, and profile image
-- Pi files/get_spotify_info.py: Flask app exposing spotify-info endpoint
-- Pi files/run-spotipy: Helper script to create venv, install deps, and run Flask app
-- Pi files/requirements.txt: Python dependencies for Spotify backend
+- backend/get_spotify_info.py: Flask app exposing spotify-info endpoint
+- backend/run-spotipy: Helper script to create venv, install deps, and run Flask app
+- backend/requirements.txt: Python dependencies for Spotify backend
 
 ## Dynamic Features
 
@@ -62,7 +63,7 @@ Frontend behavior:
 
 Backend behavior:
 
-- Implemented in Pi files/get_spotify_info.py.
+- Implemented in backend/get_spotify_info.py.
 - Flask route: /spotify-info
 - Default Flask bind: 0.0.0.0:5050
 - Uses environment variables:
@@ -93,9 +94,9 @@ Then open:
 
 If no local backend is running, Spotify and Word Wheel API sections will not return live data.
 
-## Spotify Backend (Pi files)
+## Spotify Backend (backend/)
 
-From Pi files directory:
+From backend/ directory:
 
 1. Ensure python3 and python3-venv are installed.
 2. Create a .env file with SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI.
